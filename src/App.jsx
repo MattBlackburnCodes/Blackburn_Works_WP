@@ -269,24 +269,16 @@ function HomePage() {
           </div>
 
           <div className="row g-3">
-            <CaseStudy
-              title="The Daily Nugget"
-              desc="Daily motivation app with dynamic content delivery."
-              tags={["React", "Mobile", "Content"]}
-              to="/work/the-daily-nugget"
-            />
-            <CaseStudy
-              title="Coaches Lounge MVP"
-              desc="Recruiting platform connecting athletes and coaches."
-              tags={["React", "UI/UX", "MVP"]}
-              to="/work/coaches-lounge"
-            />
-            <CaseStudy
-              title="IT Automation Toolkit"
-              desc="Custom scripts that reduce repetitive workflows."
-              tags={["Automation", "Ops", "Efficiency"]}
-              to="/work/automation-tools"
-            />
+            {WORK_ITEMS.map((item) => (
+              <CaseStudy
+                key={item.slug}
+                title={item.title}
+                desc={item.desc}
+                tags={item.tags}
+                to={`/work/${item.slug}`}
+                image={item.image}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -588,22 +580,30 @@ function Feature({ icon, title, desc }) {
   );
 }
 
-function CaseStudy({ title, desc, tags, to }) {
+function CaseStudy({ title, desc, tags, to, image }) {
   return (
-    <div className="col-lg-4">
-      <Link to={to} className="bw-case p-3 h-100 d-block text-decoration-none">
-        <div className="bw-thumb" />
+    <div className="col-md-4">
+      <Link to={to} className="bw-case h-100 d-block text-decoration-none">
+        
+        <div className="bw-thumb">
+          {image && (
+            <img src={image} alt={title} className="bw-thumbImg" />
+          )}
+        </div>
+
         <div className="p-3">
           <div className="bw-caseTitle">{title}</div>
-          <div className="bw-caseDesc mt-1">{desc}</div>
-          <div className="d-flex flex-wrap gap-2 mt-3">
-            {tags.map((t) => (
-              <span key={t} className="bw-tagTech">
-                {t}
+          <div className="bw-caseDesc">{desc}</div>
+
+          <div className="d-flex flex-wrap gap-2 mt-2">
+            {tags.map((tag, i) => (
+              <span key={i} className="bw-tagTech">
+                {tag}
               </span>
             ))}
           </div>
         </div>
+
       </Link>
     </div>
   );
