@@ -1,4 +1,5 @@
 import nuggetImg from "../assets/DailyNugget.png"
+import coachesLoungeImg from "../assets/CoachesLounge.png"
 
 export const WORK_ITEMS = [
   {
@@ -7,33 +8,47 @@ export const WORK_ITEMS = [
     shortTitle: "The Daily Nugget",
     title: "The Daily Nugget",
     desc: "Daily motivation app with dynamic content delivery.",
-    tags: ["React", "Mobile", "Web", "API","Ecosystem"],
+    tags: ["React", "Mobile", "Web", "API",],
     keyFeatures: [
-        "Daily curated quotes and affirmations",
-        "Browse content by categories and themes",
-        "Clean, modern, mobile-first experience",
-        "Fast and responsive performance",
-        "Share quotes seamlessly across social platforms",
-        "Daily reminders and push notifications",
-        "Save favorites and build personal collections",
-        "Personalized content based on user preferences"
+      "Daily dynamic quotes and affirmations",
+      "Category-based content discovery",
+      "Fast, mobile-first user experience",
+      "Optimized API-driven performance",
+      "Seamless social sharing",
+      "Daily reminders and notifications",
+      "Save favorites and collections",
+      "Personalized content preferences"
     ],
-    summary:
+    shortDesc:
       "A content-first mobile experience built to deliver uplifting quotes, affirmations, and daily motivation through a clean and modern interface.",
     outcome:
-      "Built to feel polished, easy to use, and scalable for future content features and monetization.",
+      "A scalable, production-ready mobile app focused on performance, user engagement, and long-term growth. Built to support real-world use cases including retention, personalization, and future monetization.",
+    summary:"The Daily Nugget was created as a content-first mobile experience focused on delivering consistent, meaningful motivation through quotes and affirmations. The goal was to build something simple, fast, and engaging—allowing users to easily discover and return to content that resonates with them. It was designed with scalability in mind, supporting future features like personalization, notifications, and expanded content categories.",
     liveUrl: "https://thedailynugget.app",
   },
   {
     slug: "coaches-lounge",
+    image: coachesLoungeImg,
     shortTitle: "Coaches Lounge",
-    title: "Coaches Lounge MVP",
+    title: "Coaches Lounge",
     desc: "Recruiting platform connecting athletes and coaches.",
     tags: ["React", "UI/UX", "MVP"],
-    summary:
-      "A recruiting and discovery platform designed to help athletes, coaches, and programs connect through profiles, events, and visibility.",
+    keyFeatures: [
+      "Dynamic athlete and coach profile system",
+      "Advanced player discovery and recruiting tools",
+      "Role-based platform for athletes and coaches",
+      "Integrated highlight videos and media showcases",
+      "Real-time messaging and connection building",
+      "Team and roster management capabilities",
+      "Searchable player metrics and attributes",
+      "Scalable, mobile-first application architecture"
+    ],
+    shortDesc:
+      "Delivered as a functional MVP with a strong foundation for scaling into a full recruiting ecosystem, enabling user growth, expanded features, and future monetization opportunities.",
     outcome:
       "Structured as an MVP with a scalable foundation for future growth, premium features, and expanded user roles.",
+    summary:
+      "Coaches Lounge was built as a modern solution to the fragmented recruiting process in sports. The platform brings athletes, coaches, and families into a single ecosystem where talent can be showcased, discovered, and evaluated more efficiently. Designed as a scalable MVP, the focus was on creating meaningful connections, simplifying recruitment workflows, and laying the groundwork for future features such as advanced search, media integration, and expanded user roles.",
     liveUrl: "https://coacheslounge.co",
   },
   {

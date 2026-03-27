@@ -4,10 +4,13 @@ import { WORK_ITEMS } from "./data/workItems";
 
 const NAV = [
   { id: "platform", label: "Platform" },
+  { id: "services", label: "Services" },
   { id: "features", label: "Features" },
   { id: "work", label: "Work" },
   { id: "contact", label: "Contact" },
 ];
+
+const year = new Date().getFullYear();
 
 
 const scrollToId = (id) => {
@@ -349,7 +352,7 @@ function HomePage() {
       <footer className="bw-footerTech">
         <div className="container bw-container py-4 d-flex flex-column flex-md-row justify-content-between gap-3">
           <div className="bw-footTech">
-            © {new Date().getFullYear()} Blackburn Works LLC
+            © 2025 - {year} Blackburn Works LLC
           </div>
           <div className="d-flex gap-3">
             <button
@@ -447,7 +450,7 @@ function WorkPage({ item }) {
                 />
                 <div className="p-3">
                   <div className="bw-caseTitle">Project overview</div>
-                  <div className="bw-caseDesc mt-2">{item.summary}</div>
+                  <div className="bw-caseDesc mt-2">{item.shortDesc}</div>
                 </div>
               </div>
             </div>
@@ -463,7 +466,7 @@ function WorkPage({ item }) {
 
             <div className="col-lg-6">
               <div className="bw-cardTech p-4 h-100">
-                <h3 className="bw-miniTitle mb-3">Why it matters</h3>
+                <h3 className="bw-miniTitle mb-3">Impact</h3>
                 <p className="bw-subTech mb-0">{item.outcome}</p>
               </div>
             </div>
@@ -483,7 +486,7 @@ function WorkPage({ item }) {
 
             <div className="col-lg-6">
               <div className="bw-cardTech p-4 h-100">
-                <h3 className="bw-miniTitle mb-3">Next step</h3>
+                <h3 className="bw-miniTitle mb-3">Let's build something</h3>
                 <p className="bw-subTech mb-3">
                   Want something with a similar level of polish, structure, and
                   scalability?
