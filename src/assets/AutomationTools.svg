@@ -1,0 +1,87 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" rx="56" fill="#090909"/>
+  <g filter="url(#shadow)">
+    <rect x="172" y="112" width="1256" height="920" rx="56" fill="url(#panelBg)"/>
+    <rect x="172.75" y="112.75" width="1254.5" height="918.5" rx="55.25" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1.5"/>
+  </g>
+  <circle cx="1230" cy="230" r="170" fill="url(#goldGlow)"/>
+  <circle cx="356" cy="892" r="132" fill="url(#whiteGlow)"/>
+  <g filter="url(#softShadow)">
+    <rect x="360" y="214" width="880" height="600" rx="42" fill="#F4F1EC"/>
+    <rect x="360" y="214" width="880" height="600" rx="42" stroke="#D6D0C7" stroke-width="3"/>
+  </g>
+  <rect x="422" y="282" width="756" height="438" rx="28" fill="#FFFFFF"/>
+  <rect x="422" y="282" width="756" height="438" rx="28" stroke="#E3DDD3" stroke-width="2"/>
+  <circle cx="472" cy="333" r="8" fill="#2A195C"/>
+  <circle cx="504" cy="333" r="8" fill="#B1AAA0"/>
+  <circle cx="536" cy="333" r="8" fill="#B1AAA0"/>
+  <path d="M702 814H898L942 910H658L702 814Z" fill="#E3DDD3"/>
+  <rect x="602" y="910" width="396" height="34" rx="17" fill="#D8D0C5"/>
+  <g opacity="0.95">
+    <path d="M608.166 444.542L589.88 433.603L571.594 444.542L552.256 436.122L549.275 415.083L533.818 400.541L540.717 380.458L533.818 360.375L549.275 345.833L552.256 324.794L571.594 316.374L589.88 327.313L608.166 316.374L627.504 324.794L630.485 345.833L645.942 360.375L639.043 380.458L645.942 400.541L630.485 415.083L627.504 436.122L608.166 444.542Z" fill="#2A195C"/>
+    <circle cx="589.88" cy="380.458" r="38.5" fill="#F4F1EC"/>
+    <circle cx="589.88" cy="380.458" r="19" fill="#2A195C"/>
+  </g>
+  <g opacity="0.98">
+    <path d="M912.342 554.226L886.06 538.495L859.778 554.226L831.989 542.123L827.706 511.891L805.496 490.996L815.41 462.132L805.496 433.267L827.706 412.373L831.989 382.14L859.778 370.038L886.06 385.769L912.342 370.038L940.131 382.14L944.414 412.373L966.624 433.267L956.71 462.132L966.624 490.996L944.414 511.891L940.131 542.123L912.342 554.226Z" fill="#2A195C"/>
+    <circle cx="886.06" cy="462.132" r="55.5" fill="#F4F1EC"/>
+    <circle cx="886.06" cy="462.132" r="26" fill="#2A195C"/>
+  </g>
+  <g opacity="0.95">
+    <path d="M781.648 447.331L758.535 433.5L735.422 447.331L710.983 436.689L707.217 410.102L687.686 391.73L696.406 366.344L687.686 340.959L707.217 322.587L710.983 296L735.422 285.358L758.535 299.189L781.648 285.358L806.086 296L809.853 322.587L829.384 340.959L820.664 366.344L829.384 391.73L809.853 410.102L806.086 436.689L781.648 447.331Z" fill="#2A195C"/>
+    <circle cx="758.535" cy="366.344" r="48.5" fill="#F4F1EC"/>
+    <circle cx="758.535" cy="366.344" r="23" fill="#2A195C"/>
+  </g>
+  <path d="M642 628H956" stroke="#D4AF37" stroke-width="8" stroke-linecap="round"/>
+  <path d="M585 632L641 632" stroke="#2A195C" stroke-width="8" stroke-linecap="round"/>
+  <path d="M958 632L1014 632" stroke="#2A195C" stroke-width="8" stroke-linecap="round"/>
+  <g filter="url(#labelShadow)">
+    <rect x="430" y="920" width="740" height="104" rx="24" fill="#F8F5EF"/>
+    <rect x="430.75" y="920.75" width="738.5" height="102.5" rx="23.25" stroke="#D4AF37" stroke-opacity="0.55" stroke-width="1.5"/>
+  </g>
+  <text x="800" y="985" text-anchor="middle" fill="#1767AA" font-family="Segoe UI, Arial, sans-serif" font-size="60" font-weight="700" letter-spacing="6">AUTOMATION</text>
+  <defs>
+    <linearGradient id="panelBg" x1="248" y1="150" x2="1342" y2="1008" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#141414"/>
+      <stop offset="1" stop-color="#0A0A0A"/>
+    </linearGradient>
+    <radialGradient id="goldGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1230 230) rotate(90) scale(170)">
+      <stop stop-color="#D4AF37" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#D4AF37" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="whiteGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(356 892) rotate(90) scale(132)">
+      <stop stop-color="#FFFFFF" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="120" y="80" width="1360" height="1016" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="18"/>
+      <feGaussianBlur stdDeviation="26"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.38 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1" result="shape"/>
+    </filter>
+    <filter id="softShadow" x="328" y="190" width="944" height="664" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="10"/>
+      <feGaussianBlur stdDeviation="16"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.164706 0 0 0 0 0.0980392 0 0 0 0 0.360784 0 0 0 0.12 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1" result="shape"/>
+    </filter>
+    <filter id="labelShadow" x="408" y="904" width="784" height="148" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="6"/>
+      <feGaussianBlur stdDeviation="11"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0823529 0 0 0 0 0.372549 0 0 0 0 0.647059 0 0 0 0.12 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1" result="shape"/>
+    </filter>
+  </defs>
+</svg>

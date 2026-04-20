@@ -1,5 +1,7 @@
 import nuggetImg from "../assets/DailyNugget.png"
 import coachesLoungeImg from "../assets/CoachesLounge.png"
+import automationToolsImg from "../assets/AutomationTools.svg"
+import barrigasAndFriendsImg from "../assets/barrigas-profile.jpg"
 
 export const WORK_ITEMS = [
   {
@@ -52,27 +54,47 @@ export const WORK_ITEMS = [
     liveUrl: "https://coacheslounge.co",
   },
   {
+    slug: "barrigas-and-friends",
+    image: barrigasAndFriendsImg,
+    shortTitle: "Barrigas & Friends",
+    title: "Barrigas & Friends",
+    desc: "Modern website for a growing brand focused on community and identity.",
+    tags: ["React", "UI/UX", "Web"],
+    keyFeatures: [
+      "Clean, brand-focused landing experience",
+      "Responsive layout across all devices",
+      "Optimized performance and fast load times",
+      "Structured content for easy navigation",
+      "Scalable foundation for future features",
+      "Custom UI tailored to brand identity",
+      "Modern component-based architecture",
+      "Deployment-ready with Vercel integration"
+    ],
+    shortDesc:
+      "A modern, responsive website designed to establish a strong online presence while remaining flexible for future growth and expansion.",
+    outcome:
+      "Delivered a polished, production-ready website that strengthens brand visibility and provides a scalable foundation for future updates and features.",
+    summary:
+      "Barrigas & Friends was developed as a clean and modern web experience focused on building a strong digital presence. The goal was to create something visually appealing, easy to navigate, and adaptable as the brand evolves. Emphasis was placed on performance, responsive design, and a scalable structure—allowing the platform to grow over time without needing a complete rebuild.",
+    liveUrl: "https://baf-wp.vercel.app/",
+  },
+  {
     slug: "automation-tools",
+    image: automationToolsImg,
     shortTitle: "Automation Tools",
     title: "IT Automation Toolkit",
     desc: "Custom scripts that reduce repetitive workflows.",
     tags: ["Automation", "Ops", "Efficiency"],
+    keyFeatures: [
+      "Workflow automation with customer scripting",
+      "Teams and system confirguration optimization",
+      "Remote workstation monitoring and diagnostics",
+      "Performance tuning and system adjustments",
+    ],
     summary:
       "A collection of automation concepts and tools focused on reducing repetitive work, improving speed, and tightening process consistency.",
     outcome:
       "Created to support operational efficiency and make common workflows faster, cleaner, and easier to repeat.",
-    liveUrl: "#",
-  },
-  {
-    slug: "the-academy",
-    shortTitle: "The Academy",
-    title: "The Academy",
-    desc: "Training and development experience for structured learning.",
-    tags: ["Learning", "Product", "UX"],
-    summary:
-      "A learning-focused concept centered around organized content, structured pathways, and a clean product-style experience.",
-    outcome:
-      "Designed to communicate credibility, clarity, and room for expansion into a larger platform.",
     liveUrl: "#",
   },
 ];
