@@ -93,7 +93,7 @@ function HomePage() {
               type="button"
               onClick={() => scrollToId("contact")}
             >
-              Get Started
+              Book a Build Call
             </button>
           </div>
         </div>
@@ -117,14 +117,14 @@ function HomePage() {
                     type="button"
                     onClick={() => scrollToId("contact")}
                   >
-                    Start a Project
+                    Start Your Build
                   </button>
                   <button
                     className="bw-btn bw-btnSecondary"
                     type="button"
                     onClick={() => scrollToId("portfolio")}
                   >
-                    View Projects
+                    See Recent Work
                   </button>
                 </div>
                 <div className="bw-statsGrid">
@@ -181,7 +181,7 @@ function HomePage() {
                   type="button"
                   onClick={() => scrollToId("portfolio")}
                 >
-                  Explore Projects
+                  See What We Build
                 </button>
               </div>
 
@@ -294,7 +294,7 @@ function HomePage() {
                   type="button"
                   onClick={() => scrollToId("contact")}
                 >
-                  Request a Quote
+                  Talk Through an Add-On
                 </button>
               </div>
 
@@ -323,16 +323,56 @@ function HomePage() {
                   type="button"
                   onClick={() => scrollToId("contact")}
                 >
-                  Get Started
+                  Start the Conversation
                 </button>
                 <button
                   className="bw-btn bw-btnSecondary"
                   type="button"
                   onClick={() => scrollToId("contact")}
                 >
-                  Request a Quote
+                  Get a Clear Quote
                 </button>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bw-section bw-trustSection">
+          <div className="container bw-shell">
+            <div className="bw-trustGrid">
+              <div className="bw-trustIntro">
+                <div className="bw-sectionLabel">Why Blackburn Works</div>
+                <h2 className="bw-sectionTitle">
+                  A focused partner for clean launches and confident next steps.
+                </h2>
+                <p className="bw-sectionText">
+                  The goal is not to overcomplicate the build. It is to give you
+                  a premium web presence with clear scope, practical decisions,
+                  and a finished product that helps people take your business
+                  seriously.
+                </p>
+              </div>
+
+              <div className="bw-trustCards">
+                <TrustCard
+                  title="Clarity before code"
+                  text="Scope, content, and priorities are shaped up front so the build moves with fewer surprises."
+                />
+                <TrustCard
+                  title="Launch-ready execution"
+                  text="Responsive layouts, polished UI, deployment, and core SEO details are handled with care."
+                />
+                <TrustCard
+                  title="Built for momentum"
+                  text="Your site is structured so future pages, automations, and feature upgrades can be added cleanly."
+                />
+              </div>
+            </div>
+
+            <div className="bw-processStrip">
+              <ProcessStep number="01" title="Share the goal" text="Send the essentials: what you need, who it is for, and what success should look like." />
+              <ProcessStep number="02" title="Confirm the scope" text="You get a clear direction, package fit, timeline, and next-step recommendation." />
+              <ProcessStep number="03" title="Launch with polish" text="The build moves through design, development, review, and deployment with launch readiness in mind." />
             </div>
           </div>
         </section>
@@ -341,7 +381,7 @@ function HomePage() {
           <div className="container bw-shell">
             <SectionHeader
               title="Projects"
-              text="Your existing work now sits in the portfolio slot where Clarity places projects."
+              text="Selected builds that show how Blackburn Works turns product ideas, brand presence, and operational needs into polished digital experiences."
             />
 
             <div className="bw-filterRow">
@@ -390,7 +430,7 @@ function HomePage() {
           <div className="container bw-shell">
             <SectionHeader
               title="Contact"
-              text="Your current contact behavior stays in place for now and still opens an email draft."
+              text="Have a project in mind, or just need help choosing the right direction? Send a few details and Blackburn Works will respond within 1-2 business days with a clear next step."
             />
 
             <div className="row g-4 align-items-stretch">
@@ -402,8 +442,10 @@ function HomePage() {
                     </div>
                     <h3>Let&apos;s start a conversation</h3>
                     <p>
-                      Share what you want to build and Blackburn Works can shape
-                      the next step from there.
+                      No pressure and no bloated discovery process. Share the
+                      basics and Blackburn Works will help determine whether a
+                      starter site, business site, custom build, or add-on is
+                      the right fit.
                     </p>
                   </div>
                   <ContactForm />
@@ -413,31 +455,31 @@ function HomePage() {
               <div className="col-lg-7">
                 <div className="bw-contactInfoArea">
                   <div className="bw-infoHeader">
-                    <h3>Ready to transform your ideas?</h3>
+                    <h3>Clear next steps, not a hard sell.</h3>
                     <p>
-                      This keeps the contact section organized like Clarity,
-                      while preserving the Blackburn Works details already in the
-                      project.
+                      A good launch starts with the right scope. You can ask a
+                      question, describe a rough idea, or request pricing
+                      guidance before committing to anything.
                     </p>
                   </div>
 
                   <div className="bw-methodGrid">
                     <InfoCard
-                      title="Services"
-                      value="Web, UI, automation"
-                      note="Flexible digital support"
+                      title="Best Starting Point"
+                      value="Website packages"
+                      note="Starter, business, or custom"
                       icon={<IconSpark />}
                     />
                     <InfoCard
-                      title="Stack"
-                      value="React, Vite, Bootstrap"
-                      note="Modern frontend delivery"
+                      title="Response Timing"
+                      value="1-2 business days"
+                      note="Clear reply with next steps"
                       icon={<IconCode />}
                     />
                     <InfoCard
-                      title="Delivery"
-                      value="Fast, scoped, modern"
-                      note="Built for clear execution"
+                      title="Working Style"
+                      value="Scoped and practical"
+                      note="Built around launch readiness"
                       icon={<IconClock />}
                     />
                   </div>
@@ -448,10 +490,10 @@ function HomePage() {
                       <div className="bw-metaLabel">Serving clients wherever they are</div>
                     </div>
                     <div className="bw-metaStat">
-                      <div className="bw-metaValue">Email Draft</div>
-                      <div className="bw-metaLabel">Contact form opens your current mail setup</div>
+                      <div className="bw-metaValue">Simple Start</div>
+                      <div className="bw-metaLabel">A few project details are enough to begin</div>
                     </div>
-                    <div className="bw-metaMap">Serving clients remotely</div>
+                    <div className="bw-metaMap">Launch-focused websites, UI, and automation support</div>
                   </div>
                 </div>
               </div>
@@ -469,8 +511,8 @@ function HomePage() {
                 <span>Blackburn Works LLC</span>
               </div>
               <p className="bw-footerCopy">
-                A Blackburn Works presentation using the organization of Clarity
-                with your own projects, branding, and contact flow.
+                Premium modern websites, product-minded interfaces, and practical
+                automations built for clarity, momentum, and launch readiness.
               </p>
             </div>
 
@@ -520,7 +562,7 @@ function WorkPage({ item }) {
 
             <div className="bw-detailActions">
               <Link to="/" className="bw-btn bw-btnSecondary text-decoration-none">
-                Back Home
+                Back to Main Site
               </Link>
               <a
                 href={item.liveUrl}
@@ -528,7 +570,7 @@ function WorkPage({ item }) {
                 target="_blank"
                 rel="noreferrer"
               >
-                View Live Site
+                Open Live Project
               </a>
             </div>
           </div>
@@ -590,7 +632,7 @@ function WorkPage({ item }) {
                     own product, brand, or platform idea.
                   </p>
                   <Link to="/" className="bw-btn bw-btnPrimary text-decoration-none">
-                    Start a Project
+                    Start a Similar Build
                   </Link>
                 </div>
               </div>
@@ -616,6 +658,30 @@ function StatCard({ value, label }) {
     <div className="bw-statCard">
       <div className="bw-statValue">{value}</div>
       <div className="bw-statLabel">{label}</div>
+    </div>
+  );
+}
+
+function TrustCard({ title, text }) {
+  return (
+    <div className="bw-trustCard">
+      <div className="bw-trustMark">
+        <Check size={18} />
+      </div>
+      <div>
+        <h3>{title}</h3>
+        <p>{text}</p>
+      </div>
+    </div>
+  );
+}
+
+function ProcessStep({ number, title, text }) {
+  return (
+    <div className="bw-processStep">
+      <span>{number}</span>
+      <h3>{title}</h3>
+      <p>{text}</p>
     </div>
   );
 }
@@ -647,6 +713,11 @@ function WebsiteTierCard({ tier }) {
       <div className="bw-tierBestFor">
         <span>Best for</span>
         <p>{tier.bestFor}</p>
+      </div>
+
+      <div className="bw-tierOutcome">
+        <span>Outcome</span>
+        <p>{tier.outcome}</p>
       </div>
 
       <div className="bw-tierDivider" />
@@ -702,7 +773,7 @@ function ProjectCard({ item }) {
             <span>{item.tags?.length || 0} focus areas</span>
           </div>
           <h3>{item.title}</h3>
-          <p>{item.shortDesc || item.desc}</p>
+          <p>{item.impactDesc || item.shortDesc || item.desc}</p>
           <div className="bw-tagRow">
             {item.tags?.map((tag) => (
               <span key={tag} className="bw-tag">
@@ -759,14 +830,15 @@ function ContactForm() {
         const fd = new FormData(e.currentTarget);
         const name = String(fd.get("name") || "");
         const email = String(fd.get("email") || "");
+        const subjectLine = String(fd.get("subject") || "");
         const message = String(fd.get("message") || "");
 
         const to = "youremail@example.com";
         const subject = encodeURIComponent(
-          `Blackburn Works Inquiry - ${name || "New Lead"}`
+          `Blackburn Works Inquiry - ${subjectLine || name || "New Lead"}`
         );
         const body = encodeURIComponent(
-          `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+          `Name: ${name}\nEmail: ${email}\nProject type / subject: ${subjectLine}\n\nMessage:\n${message}`
         );
         window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
       }}
@@ -775,7 +847,7 @@ function ContactForm() {
         <input
           name="name"
           className="form-control bw-input"
-          placeholder="Your Name"
+          placeholder="Your name"
           required
         />
       </div>
@@ -784,7 +856,7 @@ function ContactForm() {
           type="email"
           name="email"
           className="form-control bw-input"
-          placeholder="Email Address"
+          placeholder="Email address"
           required
         />
       </div>
@@ -792,7 +864,7 @@ function ContactForm() {
         <input
           name="subject"
           className="form-control bw-input"
-          placeholder="What's this about?"
+          placeholder="Website, redesign, automation, or not sure yet"
         />
       </div>
       <div className="col-12">
@@ -800,14 +872,15 @@ function ContactForm() {
           name="message"
           rows="5"
           className="form-control bw-input"
-          placeholder="Tell us more about your project..."
+          placeholder="Tell us what you want to build, what you already have, and any timeline you have in mind."
           required
         />
       </div>
       <div className="col-12">
         <button className="bw-btn bw-btnPrimary" type="submit">
-          Send Message
+          Send Project Details
         </button>
+        <p className="bw-responseNote">Expect a reply within 1-2 business days.</p>
       </div>
     </form>
   );

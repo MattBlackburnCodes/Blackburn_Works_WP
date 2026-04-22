@@ -136,15 +136,22 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.9rem 1.35rem;
+  min-height: 48px;
+  padding: 0.95rem 1.45rem;
   border-radius: 999px;
   border: 1px solid transparent;
   font-weight: 700;
-  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  line-height: 1;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .bw-btn:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .bw-btnPrimary {
@@ -153,10 +160,21 @@ img {
   box-shadow: 0 14px 36px rgba(212, 175, 55, 0.25);
 }
 
+.bw-btnPrimary:hover {
+  color: #070707;
+  box-shadow: 0 18px 42px rgba(212, 175, 55, 0.34);
+}
+
 .bw-btnSecondary {
   background: rgba(255, 255, 255, 0.03);
   color: var(--bw-text);
   border-color: rgba(255, 255, 255, 0.16);
+}
+
+.bw-btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(212, 175, 55, 0.3);
+  color: #f7e7ad;
 }
 
 .bw-heroSection {
@@ -242,10 +260,26 @@ img {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
   border-radius: 28px;
   box-shadow: var(--bw-shadow);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
 }
 
 .bw-statCard {
   padding: 1.2rem;
+}
+
+.bw-statCard:hover,
+.bw-infoCard:hover,
+.bw-projectPreview:hover,
+.bw-contactFormCard:hover,
+.bw-contactInfoArea:hover,
+.bw-detailCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(212, 175, 55, 0.22);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035));
 }
 
 .bw-statValue {
@@ -618,6 +652,11 @@ img {
   position: relative;
   height: 100%;
   padding: 2rem 1.5rem;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
 }
 
 .bw-serviceCardExpanded {
@@ -780,6 +819,27 @@ img {
   color: var(--bw-muted);
 }
 
+.bw-tierOutcome {
+  margin-top: 1rem;
+  padding: 1rem 1.1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  background: rgba(212, 175, 55, 0.08);
+}
+
+.bw-tierOutcome span {
+  color: #f1df9e;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.bw-tierOutcome p {
+  margin: 0.55rem 0 0;
+  color: var(--bw-text);
+}
+
 .bw-tierDivider {
   height: 1px;
   margin: 1.4rem 0 1.2rem;
@@ -908,6 +968,110 @@ img {
   gap: 0.85rem;
 }
 
+.bw-trustSection {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bw-trustGrid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.bw-trustIntro {
+  max-width: 520px;
+}
+
+.bw-trustCards {
+  display: grid;
+  gap: 1rem;
+}
+
+.bw-trustCard {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  padding: 1.35rem;
+  border: 1px solid var(--bw-border);
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
+  box-shadow: var(--bw-shadow);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.bw-trustCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(212, 175, 55, 0.24);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035));
+}
+
+.bw-trustMark {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  background: rgba(212, 175, 55, 0.12);
+  color: var(--bw-gold);
+}
+
+.bw-trustCard h3,
+.bw-processStep h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.bw-trustCard p,
+.bw-processStep p,
+.bw-responseNote {
+  color: var(--bw-muted);
+}
+
+.bw-trustCard p {
+  margin: 0.55rem 0 0;
+}
+
+.bw-processStrip {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border: 1px solid var(--bw-border);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top left, rgba(212, 175, 55, 0.12), transparent 28%),
+    rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+}
+
+.bw-processStep {
+  padding: 1.4rem;
+}
+
+.bw-processStep + .bw-processStep {
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.bw-processStep span {
+  display: inline-block;
+  margin-bottom: 0.85rem;
+  color: #f1df9e;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.bw-processStep p {
+  margin: 0.55rem 0 0;
+}
+
 .bw-filterRow,
 .bw-tagRow,
 .bw-footerMeta,
@@ -942,6 +1106,18 @@ img {
   display: block;
   height: 100%;
   overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.bw-projectCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 175, 55, 0.26);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.38);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035));
 }
 
 .bw-projectThumb {
@@ -1030,6 +1206,11 @@ img {
 .bw-input:focus {
   border-color: rgba(212, 175, 55, 0.35) !important;
   box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.12) !important;
+}
+
+.bw-responseNote {
+  margin: 0.85rem 0 0;
+  font-size: 0.92rem;
 }
 
 .bw-methodGrid {
@@ -1153,8 +1334,15 @@ img {
   .bw-statsGrid,
   .bw-methodGrid,
   .bw-contactMeta,
-  .bw-footerGrid {
+  .bw-footerGrid,
+  .bw-trustGrid,
+  .bw-processStrip {
     grid-template-columns: 1fr;
+  }
+
+  .bw-processStep + .bw-processStep {
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .bw-servicesCta {

@@ -4,7 +4,8 @@ export const WEBSITE_TIERS = [
     summary: "Fast launch for simple needs",
     price: "Starting at $750",
     timeline: "7-10 Days",
-    bestFor: "Small businesses, personal brands, and simple sites.",
+    bestFor: "Small businesses, personal brands, and simple proof-of-presence sites.",
+    outcome: "A polished, mobile-ready website you can share with confidence.",
     positioning: "Fast, clean, and professional without the wait or high cost.",
     features: [
       "Template-based design using Bootstrap assets",
@@ -14,7 +15,7 @@ export const WEBSITE_TIERS = [
       "Contact form",
       "Deployment",
     ],
-    cta: "Get Started",
+    cta: "Start This Build",
     icon: "globe",
   },
   {
@@ -23,7 +24,9 @@ export const WEBSITE_TIERS = [
     price: "Starting at $1,500",
     timeline: "10-14 Days",
     bestFor:
-      "Businesses that need more flexibility, stronger presence, and room to grow.",
+      "Service businesses that need stronger positioning, more pages, and room to grow.",
+    outcome:
+      "A sharper business presence designed to turn interest into qualified conversations.",
     positioning:
       "Built to grow with your business, with more flexibility and a stronger digital presence.",
     features: [
@@ -35,7 +38,7 @@ export const WEBSITE_TIERS = [
       "Light branding adjustments",
       "Deployment",
     ],
-    cta: "Request a Quote",
+    cta: "Plan My Business Site",
     badge: "Most Popular",
     featured: true,
     icon: "layoutGrid",
@@ -46,7 +49,9 @@ export const WEBSITE_TIERS = [
     price: "Request a Quote",
     timeline: "14-30 Days",
     bestFor:
-      "Businesses needing a fully tailored experience, special functionality, unique layouts, or deeper customization.",
+      "Brands with unique workflows, deeper customization needs, or product-style features.",
+    outcome:
+      "A tailored digital experience with the structure to support your next stage.",
     positioning:
       "Fully tailored digital experience designed around your business goals.",
     features: [
@@ -57,7 +62,7 @@ export const WEBSITE_TIERS = [
       "Stronger branding alignment",
       "Scalable architecture",
     ],
-    cta: "Request a Quote",
+    cta: "Scope a Custom Build",
     icon: "code",
   },
 ];

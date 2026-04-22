@@ -23,6 +23,8 @@ export const WORK_ITEMS = [
     ],
     shortDesc:
       "A content-first mobile experience built to deliver uplifting quotes, affirmations, and daily motivation through a clean and modern interface.",
+    impactDesc:
+      "Gives users a fast daily habit loop with room for personalization, reminders, and long-term content growth.",
     outcome:
       "A scalable, production-ready mobile app focused on performance, user engagement, and long-term growth. Built to support real-world use cases including retention, personalization, and future monetization.",
     summary:"The Daily Nugget was created as a content-first mobile experience focused on delivering consistent, meaningful motivation through quotes and affirmations. The goal was to build something simple, fast, and engaging—allowing users to easily discover and return to content that resonates with them. It was designed with scalability in mind, supporting future features like personalization, notifications, and expanded content categories.",
@@ -47,6 +49,8 @@ export const WORK_ITEMS = [
     ],
     shortDesc:
       "Delivered as a functional MVP with a strong foundation for scaling into a full recruiting ecosystem, enabling user growth, expanded features, and future monetization opportunities.",
+    impactDesc:
+      "Turns a fragmented recruiting workflow into a focused MVP for discovery, profiles, and future platform growth.",
     outcome:
       "Structured as an MVP with a scalable foundation for future growth, premium features, and expanded user roles.",
     summary:
@@ -72,6 +76,8 @@ export const WORK_ITEMS = [
     ],
     shortDesc:
       "A modern, responsive website designed to establish a strong online presence while remaining flexible for future growth and expansion.",
+    impactDesc:
+      "Strengthens brand credibility with a clean web presence that can expand without a full rebuild.",
     outcome:
       "Delivered a polished, production-ready website that strengthens brand visibility and provides a scalable foundation for future updates and features.",
     summary:
@@ -86,11 +92,15 @@ export const WORK_ITEMS = [
     desc: "Custom scripts that reduce repetitive workflows.",
     tags: ["Automation", "Ops", "Efficiency"],
     keyFeatures: [
-      "Workflow automation with customer scripting",
-      "Teams and system confirguration optimization",
+      "Workflow automation with custom scripting",
+      "Teams and system configuration optimization",
       "Remote workstation monitoring and diagnostics",
       "Performance tuning and system adjustments",
     ],
+    shortDesc:
+      "A practical automation toolkit designed to reduce repeat tasks, speed up support work, and improve process consistency.",
+    impactDesc:
+      "Helps teams save time on repeatable IT workflows while keeping common support tasks easier to run and maintain.",
     summary:
       "A collection of automation concepts and tools focused on reducing repetitive work, improving speed, and tightening process consistency.",
     outcome:
