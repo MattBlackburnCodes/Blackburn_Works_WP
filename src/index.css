@@ -677,7 +677,8 @@ img {
 }
 
 .bw-servicesNote,
-.bw-subsectionText {
+.bw-subsectionText,
+.bw-automationBridge {
   color: var(--bw-soft);
 }
 
@@ -891,6 +892,13 @@ img {
 
 .bw-serviceSplit {
   margin-top: 3.25rem;
+}
+
+.bw-automationBridge {
+  max-width: 720px;
+  margin: 2.35rem 0 1rem;
+  font-size: 1rem;
+  line-height: 1.65;
 }
 
 .bw-subsectionIntro {

@@ -93,7 +93,7 @@ function HomePage() {
               type="button"
               onClick={() => scrollToId("contact")}
             >
-              Book a Build Call
+              Start Your Project
             </button>
           </div>
         </div>
@@ -109,7 +109,9 @@ function HomePage() {
                   Modern digital builds with a <span className="bw-accent">clean, product-first presence.</span>
                 </h1>
                 <p className="bw-lead">
-                  Helping small businesses, creators, and startups launch fast, modern websites without the stress.
+                  Helping small businesses, creators, and startups launch fast,
+                  modern websites without the stress. Websites, automation, and
+                  tools designed to help your business run better.
                 </p>
                 <div className="bw-heroActions">
                   <button
@@ -117,14 +119,7 @@ function HomePage() {
                     type="button"
                     onClick={() => scrollToId("contact")}
                   >
-                    Start Your Build
-                  </button>
-                  <button
-                    className="bw-btn bw-btnSecondary"
-                    type="button"
-                    onClick={() => scrollToId("portfolio")}
-                  >
-                    See Recent Work
+                    Start Your Project
                   </button>
                 </div>
                 <div className="bw-statsGrid">
@@ -170,18 +165,18 @@ function HomePage() {
                   Built with clarity, speed, and a product-first mindset.
                 </h2>
                 <p className="bw-sectionText">
-                  Blackburn Works creates modern digital experiences that feel polished,
-                  usable, and ready to grow. From websites and UI systems to workflow
-                  automation, the goal is simple: build work that looks sharp and works
-                  hard.
+                  Blackburn Works creates modern websites that feel polished,
+                  usable, and ready to grow. PowerShell scripting is available
+                  when your business needs practical tools that support the work
+                  happening behind the website.
                 </p>
 
                 <button
                   className="bw-btn bw-btnPrimary"
                   type="button"
-                  onClick={() => scrollToId("portfolio")}
+                  onClick={() => scrollToId("contact")}
                 >
-                  See What We Build
+                  Start Your Project
                 </button>
               </div>
 
@@ -213,10 +208,10 @@ function HomePage() {
                     <div className="bw-aboutFeatureIcon">
                       <Terminal size={20} />
                     </div>
-                    <h3>Automation Mindset</h3>
+                    <h3>PowerShell Automation</h3>
                     <p>
-                      Practical solutions that reduce repetitive work and improve
-                      delivery.
+                      Practical tools for repeatable tasks, reporting, and
+                      internal IT workflows.
                     </p>
                   </div>
 
@@ -262,9 +257,10 @@ function HomePage() {
                   Ongoing Support &amp; Growth
                 </h3>
                 <p className="bw-subsectionText">
-                  Support doesn&apos;t stop at launch. Blackburn Works can help keep
-                  your site current, improve workflows, and extend the build with
-                  thoughtful product-minded enhancements over time.
+                  Support doesn&apos;t stop once the site goes live. Blackburn Works
+                  helps keep your website running smoothly, handles updates
+                  without forcing a rebuild, and supports changes as your
+                  business grows.
                 </p>
               </div>
 
@@ -277,25 +273,36 @@ function HomePage() {
               </div>
             </div>
 
+            <p className="bw-automationBridge">
+              Beyond the website, I also build PowerShell tools that help
+              automate repetitive tasks and improve how systems run behind the
+              scenes.
+            </p>
+
             <div className="bw-addonsPanel">
               <div className="bw-addonsHeader">
                 <div>
                   <div className="bw-sectionLabel">Enhancements</div>
                   <h3 className="bw-subsectionTitle">
-                    Automation / Add-Ons
+                    PowerShell Automation &amp; Tools
                   </h3>
                   <p className="bw-subsectionText bw-subsectionTextTight">
-                    Optional improvements that make the website more capable,
-                    operationally useful, and easier to work with behind the scenes.
+                    Custom PowerShell scripts designed to reduce manual work,
+                    standardize processes, and improve efficiency across your
+                    systems.
+                  </p>
+                  <p className="bw-subsectionText bw-subsectionTextTight">
+                    Built for everything from individual workstations to growing
+                    business environments.
                   </p>
                 </div>
-                <button
-                  className="bw-btn bw-btnSecondary"
-                  type="button"
-                  onClick={() => scrollToId("contact")}
-                >
-                  Talk Through an Add-On
-                </button>
+                  <button
+                    className="bw-btn bw-btnPrimary"
+                    type="button"
+                    onClick={() => scrollToId("contact")}
+                  >
+                    Start Your Project
+                  </button>
               </div>
 
               <div className="bw-addonsGrid">
@@ -312,9 +319,9 @@ function HomePage() {
               <div>
                 <h3>Ready to start the right website build?</h3>
                 <p>
-                  Start with the package that fits best, or request a quote if the
-                  project needs a more tailored scope. The process stays clear,
-                  focused, and easy to move forward with.
+                  Start with the package that fits best, or share the details if
+                  the project needs a more tailored scope. The process stays
+                  clear, focused, and easy to move forward with.
                 </p>
               </div>
               <div className="bw-servicesCtaActions">
@@ -323,14 +330,7 @@ function HomePage() {
                   type="button"
                   onClick={() => scrollToId("contact")}
                 >
-                  Start the Conversation
-                </button>
-                <button
-                  className="bw-btn bw-btnSecondary"
-                  type="button"
-                  onClick={() => scrollToId("contact")}
-                >
-                  Get a Clear Quote
+                  Start Your Project
                 </button>
               </div>
             </div>
@@ -343,28 +343,29 @@ function HomePage() {
               <div className="bw-trustIntro">
                 <div className="bw-sectionLabel">Why Blackburn Works</div>
                 <h2 className="bw-sectionTitle">
-                  A focused partner for clean launches and confident next steps.
+                  More than just a link page. 
+                  A real web presence built to convert.
                 </h2>
                 <p className="bw-sectionText">
-                  The goal is not to overcomplicate the build. It is to give you
-                  a premium web presence with clear scope, practical decisions,
-                  and a finished product that helps people take your business
-                  seriously.
+                  No unnecessary complexity. Just a premium web presence built
+                  with clear direction, smart decisions, and a finished product
+                  that makes your business look credible from the first
+                  impression.
                 </p>
               </div>
 
               <div className="bw-trustCards">
                 <TrustCard
-                  title="Clarity before code"
-                  text="Scope, content, and priorities are shaped up front so the build moves with fewer surprises."
+                  title="Plan before building"
+                  text="We clarify the pages, content, and priorities first so the build has a real direction."
                 />
                 <TrustCard
                   title="Launch-ready execution"
-                  text="Responsive layouts, polished UI, deployment, and core SEO details are handled with care."
+                  text="Your site is built responsive, reviewed carefully, and prepared for a clean handoff."
                 />
                 <TrustCard
-                  title="Built for momentum"
-                  text="Your site is structured so future pages, automations, and feature upgrades can be added cleanly."
+                  title="Room to grow"
+                  text="The structure leaves space for future pages, updates, and PowerShell automation when needed."
                 />
               </div>
             </div>
@@ -388,7 +389,7 @@ function HomePage() {
               <span className="bw-filterPill bw-filterPillActive">All Projects</span>
               <span className="bw-filterPill">Web</span>
               <span className="bw-filterPill">Product</span>
-              <span className="bw-filterPill">Automation</span>
+              <span className="bw-filterPill">PowerShell Automation</span>
             </div>
 
             <div className="row g-4">
@@ -430,7 +431,7 @@ function HomePage() {
           <div className="container bw-shell">
             <SectionHeader
               title="Contact"
-              text="Have a project in mind, or just need help choosing the right direction? Send a few details and Blackburn Works will respond within 1-2 business days with a clear next step."
+              text="Have a project in mind, or just need help choosing the right direction? Send a few details and I'll follow up within 24 hours with clear next steps."
             />
 
             <div className="row g-4 align-items-stretch">
@@ -442,10 +443,10 @@ function HomePage() {
                     </div>
                     <h3>Let&apos;s start a conversation</h3>
                     <p>
-                      No pressure and no bloated discovery process. Share the
-                      basics and Blackburn Works will help determine whether a
-                      starter site, business site, custom build, or add-on is
-                      the right fit.
+                      No pressure and no long discovery process. Share the
+                      basics and I&apos;ll help you determine whether a website
+                      package, custom build, or PowerShell automation is the right
+                      fit.
                     </p>
                   </div>
                   <ContactForm />
@@ -457,9 +458,9 @@ function HomePage() {
                   <div className="bw-infoHeader">
                     <h3>Clear next steps, not a hard sell.</h3>
                     <p>
-                      A good launch starts with the right scope. You can ask a
-                      question, describe a rough idea, or request pricing
-                      guidance before committing to anything.
+                      You can ask a question, describe a rough idea, or request
+                      pricing guidance before committing to anything. The first
+                      step is simple: send the details you have.
                     </p>
                   </div>
 
@@ -472,8 +473,8 @@ function HomePage() {
                     />
                     <InfoCard
                       title="Response Timing"
-                      value="1-2 business days"
-                      note="Clear reply with next steps"
+                      value="Within 24 hours"
+                      note="Clear follow-up with next steps"
                       icon={<IconCode />}
                     />
                     <InfoCard
@@ -493,7 +494,7 @@ function HomePage() {
                       <div className="bw-metaValue">Simple Start</div>
                       <div className="bw-metaLabel">A few project details are enough to begin</div>
                     </div>
-                    <div className="bw-metaMap">Launch-focused websites, UI, and automation support</div>
+                    <div className="bw-metaMap">Launch-focused websites and practical PowerShell automation</div>
                   </div>
                 </div>
               </div>
@@ -511,8 +512,9 @@ function HomePage() {
                 <span>Blackburn Works LLC</span>
               </div>
               <p className="bw-footerCopy">
-                Premium modern websites, product-minded interfaces, and practical
-                automations built for clarity, momentum, and launch readiness.
+                Premium modern websites, product-minded interfaces, and
+                practical PowerShell automation built for clarity, momentum, and
+                launch readiness.
               </p>
             </div>
 
@@ -537,7 +539,7 @@ function HomePage() {
               <div className="bw-footerMeta">
                 <span>Web Design</span>
                 <span>UI/UX</span>
-                <span>Automation</span>
+                <span>PowerShell Automation & Tools</span>
               </div>
             </div>
           </div>
@@ -632,7 +634,7 @@ function WorkPage({ item }) {
                     own product, brand, or platform idea.
                   </p>
                   <Link to="/" className="bw-btn bw-btnPrimary text-decoration-none">
-                    Start a Similar Build
+                    Start Your Project
                   </Link>
                 </div>
               </div>
@@ -864,7 +866,7 @@ function ContactForm() {
         <input
           name="subject"
           className="form-control bw-input"
-          placeholder="Website, redesign, automation, or not sure yet"
+          placeholder="Subject / Short description"
         />
       </div>
       <div className="col-12">
@@ -878,9 +880,9 @@ function ContactForm() {
       </div>
       <div className="col-12">
         <button className="bw-btn bw-btnPrimary" type="submit">
-          Send Project Details
+          Start Your Project
         </button>
-        <p className="bw-responseNote">Expect a reply within 1-2 business days.</p>
+        <p className="bw-responseNote">I&apos;ll follow up within 24 hours with clear next steps.</p>
       </div>
     </form>
   );

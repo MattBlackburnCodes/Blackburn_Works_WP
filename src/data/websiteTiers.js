@@ -15,7 +15,7 @@ export const WEBSITE_TIERS = [
       "Contact form",
       "Deployment",
     ],
-    cta: "Start This Build",
+    cta: "Start Your Project",
     icon: "globe",
   },
   {
@@ -38,7 +38,7 @@ export const WEBSITE_TIERS = [
       "Light branding adjustments",
       "Deployment",
     ],
-    cta: "Plan My Business Site",
+    cta: "Start Your Project",
     badge: "Most Popular",
     featured: true,
     icon: "layoutGrid",
@@ -46,7 +46,7 @@ export const WEBSITE_TIERS = [
   {
     title: "Custom Website Build",
     summary: "Fully tailored for unique business needs",
-    price: "Request a Quote",
+    price: "Custom pricing",
     timeline: "14-30 Days",
     bestFor:
       "Brands with unique workflows, deeper customization needs, or product-style features.",
@@ -62,7 +62,7 @@ export const WEBSITE_TIERS = [
       "Stronger branding alignment",
       "Scalable architecture",
     ],
-    cta: "Scope a Custom Build",
+    cta: "Start Your Project",
     icon: "code",
   },
 ];

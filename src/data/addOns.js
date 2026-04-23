@@ -1,7 +1,7 @@
 export const ADD_ONS = [
-  "Form automations",
-  "CRM setup",
-  "API integrations",
-  "Dashboards",
-  "Admin tools",
+  "Workstation setup automation",
+  "System checks and reporting",
+  "Repeatable admin tasks",
+  "Workflow automation",
+  "Internal IT process improvements",
 ];

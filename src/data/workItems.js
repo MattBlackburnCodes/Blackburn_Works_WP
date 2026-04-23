@@ -87,24 +87,25 @@ export const WORK_ITEMS = [
   {
     slug: "automation-tools",
     image: automationToolsImg,
-    shortTitle: "Automation Tools",
-    title: "IT Automation Toolkit",
-    desc: "Custom scripts that reduce repetitive workflows.",
-    tags: ["Automation", "Ops", "Efficiency"],
+    shortTitle: "PowerShell Automation",
+    title: "PowerShell Automation Toolkit",
+    desc: "Custom PowerShell scripts that reduce repetitive IT work.",
+    tags: ["PowerShell", "IT Support", "Efficiency"],
     keyFeatures: [
-      "Workflow automation with custom scripting",
-      "Teams and system configuration optimization",
-      "Remote workstation monitoring and diagnostics",
-      "Performance tuning and system adjustments",
+      "Workstation setup automation",
+      "System checks and reporting",
+      "Repeatable admin tasks",
+      "Workflow automation",
+      "Internal IT process improvements",
     ],
     shortDesc:
-      "A practical automation toolkit designed to reduce repeat tasks, speed up support work, and improve process consistency.",
+      "A practical PowerShell toolkit designed to reduce manual work, standardize repeat tasks, and improve consistency.",
     impactDesc:
-      "Helps teams save time on repeatable IT workflows while keeping common support tasks easier to run and maintain.",
+      "Helps teams save time on manual IT tasks while making common support processes easier to run and repeat.",
     summary:
-      "A collection of automation concepts and tools focused on reducing repetitive work, improving speed, and tightening process consistency.",
+      "A collection of PowerShell automation concepts focused on workstation setup, routine admin tasks, system checks, reporting, and internal IT process improvements.",
     outcome:
-      "Created to support operational efficiency and make common workflows faster, cleaner, and easier to repeat.",
+      "Created to make internal IT work faster, more consistent, and easier to maintain without adding unnecessary complexity.",
     liveUrl: "#",
   },
 ];
