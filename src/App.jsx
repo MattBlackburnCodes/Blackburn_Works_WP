@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import BWIcon from "./assets/BWIconTransp.png";
 import BWLogo from "./assets/BWLogoTransP.png";
@@ -824,27 +825,43 @@ function DetailCard({ title, text }) {
 }
 
 function ContactForm() {
-  return (
-    <form
-      className="row g-3"
-      onSubmit={(e) => {
-        e.preventDefault();
-        const fd = new FormData(e.currentTarget);
-        const name = String(fd.get("name") || "");
-        const email = String(fd.get("email") || "");
-        const subjectLine = String(fd.get("subject") || "");
-        const message = String(fd.get("message") || "");
+  const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
 
-        const to = "youremail@example.com";
-        const subject = encodeURIComponent(
-          `Blackburn Works Inquiry - ${subjectLine || name || "New Lead"}`
-        );
-        const body = encodeURIComponent(
-          `Name: ${name}\nEmail: ${email}\nProject type / subject: ${subjectLine}\n\nMessage:\n${message}`
-        );
-        window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-      }}
-    >
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    setLoading(true);
+    setStatus("Sending...");
+
+    try {
+      const response = await fetch("https://formspree.io/f/mwvnnoba", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setStatus("Message received. I’ll follow up within 24 hours.");
+        setTimeout(() => setStatus(""), 5000);
+        form.reset();
+      } else {
+        setStatus("Something went wrong. Try again.");
+      }
+    } catch (error) {
+      setStatus("Something went wrong. Try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <form className="row g-3" onSubmit={handleSubmit}>
       <div className="col-md-6">
         <input
           name="name"
@@ -853,6 +870,7 @@ function ContactForm() {
           required
         />
       </div>
+
       <div className="col-md-6">
         <input
           type="email"
@@ -862,6 +880,7 @@ function ContactForm() {
           required
         />
       </div>
+
       <div className="col-12">
         <input
           name="subject"
@@ -869,6 +888,7 @@ function ContactForm() {
           placeholder="Subject / Short description"
         />
       </div>
+
       <div className="col-12">
         <textarea
           name="message"
@@ -878,11 +898,14 @@ function ContactForm() {
           required
         />
       </div>
+
       <div className="col-12">
-        <button className="bw-btn bw-btnPrimary" type="submit">
-          Start Your Project
+        <input type="text" name="_gotcha" style={{ display: "none" }} />
+        <button className="bw-btn bw-btnPrimary" type="submit" disabled={loading}>
+          {loading ? "Sending..." : "Start Your Project"}
         </button>
-        <p className="bw-responseNote">I&apos;ll follow up within 24 hours with clear next steps.</p>
+
+        {status && <p className="bw-responseNote">{status}</p>}
       </div>
     </form>
   );
