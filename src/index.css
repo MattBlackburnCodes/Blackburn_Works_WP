@@ -953,6 +953,109 @@ img {
   font-weight: 500;
 }
 
+.bw-itServicesPanel {
+  margin-top: 2rem;
+  padding: 1.75rem;
+  border: 1px solid var(--bw-border);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at top left, rgba(212, 175, 55, 0.12), transparent 32%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.03));
+  box-shadow: var(--bw-shadow);
+}
+
+.bw-itServicesIntro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
+  gap: 1.25rem;
+  align-items: end;
+}
+
+.bw-itPricingCard {
+  padding: 1.25rem;
+  border-radius: 22px;
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  background: rgba(212, 175, 55, 0.09);
+}
+
+.bw-itPricingCard span {
+  display: block;
+  color: #f1df9e;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.bw-itPricingCard strong {
+  display: block;
+  margin-top: 0.45rem;
+  color: var(--bw-text);
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  line-height: 1.15;
+}
+
+.bw-itServicesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin-top: 1.5rem;
+}
+
+.bw-itServiceItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  min-height: 64px;
+  padding: 1rem 1.1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--bw-text);
+  font-weight: 500;
+}
+
+.bw-itServiceItem svg,
+.bw-itAvailability svg {
+  flex: 0 0 auto;
+  color: var(--bw-gold);
+}
+
+.bw-itServiceItem svg {
+  margin-top: 0.15rem;
+}
+
+.bw-itAvailability {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  padding: 1rem 1.1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  background: rgba(7, 7, 7, 0.32);
+  color: var(--bw-muted);
+  font-weight: 500;
+}
+
+.bw-localServiceArea {
+  margin-top: 1.25rem;
+  padding: 1.1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.bw-localServiceArea > span {
+  display: block;
+  margin-bottom: 0.85rem;
+  color: #f1df9e;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
 .bw-servicesCta {
   margin-top: 2rem;
   padding: 1.5rem;
@@ -1367,6 +1470,11 @@ img {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .bw-itServicesIntro,
+  .bw-itServicesGrid {
+    grid-template-columns: 1fr;
+  }
+
   .bw-tierMetaGrid {
     grid-template-columns: 1fr;
   }
@@ -1435,11 +1543,16 @@ img {
   }
 
   .bw-tierCard,
-  .bw-addonsPanel {
+  .bw-addonsPanel,
+  .bw-itServicesPanel {
     padding: 1.5rem;
   }
 
   .bw-addonsGrid {
     grid-template-columns: 1fr;
+  }
+
+  .bw-itAvailability {
+    align-items: flex-start;
   }
 }

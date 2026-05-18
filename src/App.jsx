@@ -38,6 +38,31 @@ const CAPABILITY_SERVICE_ICONS = {
   palette: <Palette size={20} />,
 };
 
+const IT_SERVICES = [
+  "Workstation setup and configuration",
+  "Data transfer and migration",
+  "Encrypted drive access assistance and data recovery support",
+  "System diagnostics and troubleshooting",
+  "Laptop and desktop hardware repair",
+  "Software troubleshooting and installation",
+  "Virus and malware removal",
+  "Performance optimization and PC tune-ups",
+  "Printer and peripheral setup",
+  "Home office and small business technology setup",
+];
+
+const DMV_SERVICE_AREAS = [
+  "Washington, DC",
+  "Arlington, VA",
+  "Alexandria, VA",
+  "Fairfax, VA",
+  "Silver Spring, MD",
+  "Bethesda, MD",
+  "Rockville, MD",
+  "College Park, MD",
+  "Bowie, MD",
+];
+
 const year = new Date().getFullYear();
 
 const scrollToId = (id) => {
@@ -107,12 +132,13 @@ function HomePage() {
               <div className="col-lg-6">
                 <div className="bw-kicker">Blackburn Works LLC</div>
                 <h1 className="bw-display">
-                  Modern digital builds with a <span className="bw-accent">clean, product-first presence.</span>
+                  Website development, PowerShell automation, and <span className="bw-accent">affordable IT services for the DMV area.</span>
                 </h1>
                 <p className="bw-lead">
-                  Helping small businesses, creators, and startups launch fast,
-                  modern websites without the stress. Websites, automation, and
-                  tools designed to help your business run better.
+                  Serving Washington, DC, Maryland, and Northern Virginia with
+                  distinct service paths: website development for your online
+                  presence, IT services for computer support, and automation for
+                  repeatable business workflows.
                 </p>
                 <div className="bw-heroActions">
                   <button
@@ -124,9 +150,9 @@ function HomePage() {
                   </button>
                 </div>
                 <div className="bw-statsGrid">
-                  <StatCard value={`${WORK_ITEMS.length}+`} label="Projects Built" />
-                  <StatCard value="React + Vite" label="Core Build Stack" />
-                  <StatCard value="Mobile-First" label="Default Approach" />
+                  <StatCard value="Website Development" label="Starter, business, and custom builds" />
+                  <StatCard value="$50/hr IT Support" label="Remote and onsite DMV help" />
+                  <StatCard value="PowerShell Automation" label="Workflow tools and scripts" />
                 </div>
               </div>
 
@@ -236,8 +262,20 @@ function HomePage() {
           <div className="container bw-shell">
             <SectionHeader
               title="Services"
-              text="Clear, modern website packages built for businesses that want a polished digital presence without unnecessary friction. Each option is designed to be easy to understand, professional to launch, and aligned with the next stage of your business."
+              text="Blackburn Works offers three distinct services: website development, PowerShell automation, and affordable IT services for homes, home offices, and small businesses across the Washington, DC, Maryland, and Northern Virginia area."
             />
+
+            <div className="bw-subsectionIntro">
+              <div className="bw-sectionLabel">Website Development</div>
+              <h3 className="bw-subsectionTitle">
+                Website builds for a polished online presence.
+              </h3>
+              <p className="bw-subsectionText">
+                Website development is scoped separately from hourly IT support:
+                choose a starter site, business site, or custom website build
+                when you need a professional web presence.
+              </p>
+            </div>
 
             <div className="row g-4 align-items-stretch">
               {WEBSITE_TIERS.map((tier) => (
@@ -316,13 +354,63 @@ function HomePage() {
               </div>
             </div>
 
+            <div className="bw-itServicesPanel">
+              <div className="bw-itServicesIntro">
+                <div>
+                  <div className="bw-sectionLabel">IT Services</div>
+                  <h3 className="bw-subsectionTitle">
+                    Affordable IT services for the DMV area.
+                  </h3>
+                  <p className="bw-subsectionText bw-subsectionTextTight">
+                    Whether you&apos;re setting up a new workstation, recovering
+                    important files, or troubleshooting technical issues,
+                    Blackburn Works provides practical solutions without the
+                    confusion.
+                  </p>
+                </div>
+
+                <div className="bw-itPricingCard">
+                  <span>Pricing</span>
+                  <strong>Starting at $50/hour</strong>
+                </div>
+              </div>
+
+              <div className="bw-itServicesGrid">
+                {IT_SERVICES.map((service) => (
+                  <div key={service} className="bw-itServiceItem">
+                    <Check size={16} />
+                    <span>{service}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="bw-itAvailability">
+                <LifeBuoy size={18} />
+                <span>
+                  Remote support available or onsite service within a 50-mile
+                  radius of Washington, DC.
+                </span>
+              </div>
+
+              <div className="bw-localServiceArea">
+                <span>Serving the DMV area</span>
+                <div className="bw-tagRow">
+                  {DMV_SERVICE_AREAS.map((area) => (
+                    <span key={area} className="bw-tag">
+                      {area}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
             <div className="bw-servicesCta bw-servicesCtaWide">
               <div>
-                <h3>Ready to start the right website build?</h3>
+                <h3>Ready to start website development, IT support, or automation?</h3>
                 <p>
-                  Start with the package that fits best, or share the details if
-                  the project needs a more tailored scope. The process stays
-                  clear, focused, and easy to move forward with.
+                  Website development is scoped as a package or custom build. IT
+                  services are hourly, starting at $50/hour. PowerShell
+                  automation is scoped around the workflow or tool you need.
                 </p>
               </div>
               <div className="bw-servicesCtaActions">
@@ -432,7 +520,7 @@ function HomePage() {
           <div className="container bw-shell">
             <SectionHeader
               title="Contact"
-              text="Have a project in mind, or just need help choosing the right direction? Send a few details and I'll follow up within 24 hours with clear next steps."
+              text="Need website development, affordable IT services in the DMV area, or automation support? Send a few details and I'll follow up within 24 hours with clear next steps."
             />
 
             <div className="row g-4 align-items-stretch">
@@ -445,9 +533,9 @@ function HomePage() {
                     <h3>Let&apos;s start a conversation</h3>
                     <p>
                       No pressure and no long discovery process. Share the
-                      basics and I&apos;ll help you determine whether a website
-                      package, custom build, or PowerShell automation is the right
-                      fit.
+                      basics and I&apos;ll help route the request clearly:
+                      website development, hourly IT support, or PowerShell
+                      automation.
                     </p>
                   </div>
                   <ContactForm />
@@ -459,43 +547,44 @@ function HomePage() {
                   <div className="bw-infoHeader">
                     <h3>Clear next steps, not a hard sell.</h3>
                     <p>
-                      You can ask a question, describe a rough idea, or request
-                      pricing guidance before committing to anything. The first
-                      step is simple: send the details you have.
+                      You can ask about a website build, describe a technical
+                      issue, or request automation guidance before committing to
+                      anything. The first step is simple: send the details you
+                      have.
                     </p>
                   </div>
 
                   <div className="bw-methodGrid">
                     <InfoCard
-                      title="Best Starting Point"
-                      value="Website packages"
-                      note="Starter, business, or custom"
+                      title="Website Development"
+                      value="Package or custom build"
+                      note="Starter, business, and tailored websites"
                       icon={<IconSpark />}
                     />
                     <InfoCard
-                      title="Response Timing"
-                      value="Within 24 hours"
-                      note="Clear follow-up with next steps"
-                      icon={<IconCode />}
+                      title="IT Services"
+                      value="Starting at $50/hour"
+                      note="Remote or onsite within 50 miles of Washington, DC"
+                      icon={<LifeBuoy size={20} />}
                     />
                     <InfoCard
-                      title="Working Style"
-                      value="Scoped and practical"
-                      note="Built around launch readiness"
-                      icon={<IconClock />}
+                      title="PowerShell Automation"
+                      value="Workflow tools"
+                      note="Scripts for repeatable tasks and reporting"
+                      icon={<IconCode />}
                     />
                   </div>
 
                   <div className="bw-contactMeta">
                     <div className="bw-metaStat">
-                      <div className="bw-metaValue">Remote</div>
-                      <div className="bw-metaLabel">Serving clients wherever they are</div>
+                      <div className="bw-metaValue">DMV Area</div>
+                      <div className="bw-metaLabel">Washington, DC, Maryland, and Northern Virginia</div>
                     </div>
                     <div className="bw-metaStat">
-                      <div className="bw-metaValue">Simple Start</div>
-                      <div className="bw-metaLabel">A few project details are enough to begin</div>
+                      <div className="bw-metaValue">Remote + Onsite</div>
+                      <div className="bw-metaLabel">Flexible IT support options</div>
                     </div>
-                    <div className="bw-metaMap">Launch-focused websites and practical PowerShell automation</div>
+                    <div className="bw-metaMap">Website development, hourly IT support, and PowerShell automation are scoped as separate services</div>
                   </div>
                 </div>
               </div>
@@ -513,9 +602,9 @@ function HomePage() {
                 <span>Blackburn Works LLC</span>
               </div>
               <p className="bw-footerCopy">
-                Premium modern websites, product-minded interfaces, and
-                practical PowerShell automation built for clarity, momentum, and
-                launch readiness.
+                Modern websites, practical PowerShell automation, and affordable
+                DMV-area IT services for homes, home offices, and small
+                businesses.
               </p>
             </div>
 
@@ -538,7 +627,9 @@ function HomePage() {
             <div>
               <h4 className="bw-footerTitle">Blackburn Works</h4>
               <div className="bw-footerMeta">
-                <span>Web Design</span>
+                <span>Website Development</span>
+                <span>Affordable DMV IT Support</span>
+                <span>PC Repair & Troubleshooting</span>
                 <span>UI/UX</span>
                 <span>PowerShell Automation & Tools</span>
               </div>
@@ -853,7 +944,7 @@ function ContactForm() {
       } else {
         setStatus("Something went wrong. Try again.");
       }
-    } catch (error) {
+    } catch {
       setStatus("Something went wrong. Try again.");
     } finally {
       setLoading(false);
@@ -885,7 +976,7 @@ function ContactForm() {
         <input
           name="subject"
           className="form-control bw-input"
-          placeholder="Subject / Short description"
+          placeholder="What do you need help with?"
         />
       </div>
 
@@ -894,7 +985,7 @@ function ContactForm() {
           name="message"
           rows="5"
           className="form-control bw-input"
-          placeholder="Tell us what you want to build, what you already have, and any timeline you have in mind."
+          placeholder="Tell us whether this is IT support, a website, automation, or another technical need. Include your location if you need onsite service."
           required
         />
       </div>
@@ -902,7 +993,7 @@ function ContactForm() {
       <div className="col-12">
         <input type="text" name="_gotcha" style={{ display: "none" }} />
         <button className="bw-btn bw-btnPrimary" type="submit" disabled={loading}>
-          {loading ? "Sending..." : "Start Your Project"}
+          {loading ? "Sending..." : "Send Request"}
         </button>
 
         {status && <p className="bw-responseNote">{status}</p>}
@@ -931,14 +1022,6 @@ function IconMessage() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M4 5h16v10H8l-4 4z" />
-    </svg>
-  );
-}
-
-function IconClock() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 6v6l4 2M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z" />
     </svg>
   );
 }
