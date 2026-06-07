@@ -13,9 +13,11 @@ import {
   Globe,
   LayoutGrid,
   LifeBuoy,
+  Menu,
   Palette,
   Terminal,
   Workflow,
+  X,
 } from "lucide-react";
 
 const NAV = [
@@ -87,6 +89,13 @@ export default function App() {
 }
 
 function HomePage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleNavClick = (id) => {
+    setMenuOpen(false);
+    scrollToId(id);
+  };
+
   return (
     <div className="bw-site">
       <header className="bw-header sticky-top">
@@ -95,19 +104,33 @@ function HomePage() {
             <button
               className="bw-brandWrap"
               type="button"
-              onClick={() => scrollToId("hero")}
+              onClick={() => handleNavClick("hero")}
             >
               <img src={BWIcon} alt="Blackburn Works" className="bw-brandIcon" />
               <span className="bw-brandText">Blackburn Works LLC</span>
             </button>
 
-            <nav className="bw-navMenu">
+            <button
+              className="bw-menuToggle"
+              type="button"
+              aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-controls="primary-navigation"
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((open) => !open)}
+            >
+              {menuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+
+            <nav
+              id="primary-navigation"
+              className={`bw-navMenu${menuOpen ? " bw-navMenuOpen" : ""}`}
+            >
               {NAV.map((item) => (
                 <button
                   key={item.id}
                   className="bw-navLink"
                   type="button"
-                  onClick={() => scrollToId(item.id)}
+                  onClick={() => handleNavClick(item.id)}
                 >
                   {item.label}
                 </button>
@@ -115,9 +138,9 @@ function HomePage() {
             </nav>
 
             <button
-              className="bw-btn bw-btnPrimary"
+              className="bw-btn bw-btnPrimary bw-headerCta"
               type="button"
-              onClick={() => scrollToId("contact")}
+              onClick={() => handleNavClick("contact")}
             >
               Start Your Project
             </button>
@@ -453,8 +476,8 @@ function HomePage() {
                   text="Your site is built responsive, reviewed carefully, and prepared for a clean handoff."
                 />
                 <TrustCard
-                  title="Room to grow"
-                  text="The structure leaves space for future pages, updates, and PowerShell automation when needed."
+                  title="Clean updates after launch"
+                  text="Your pages, calls to action, and service sections are organized so new content, edits, and integrations can be added without rebuilding from scratch."
                 />
               </div>
             </div>
