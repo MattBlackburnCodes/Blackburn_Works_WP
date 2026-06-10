@@ -20,15 +20,15 @@ export const WEBSITE_TIERS = [
   },
   {
     title: "Business Site",
-    summary: "More flexibility and growth-ready structure",
+    summary: "Stronger service presentation and page structure",
     price: "Starting at $1,500",
     timeline: "10-14 Days",
     bestFor:
-      "Service businesses that need stronger positioning, more pages, and room to grow.",
+      "Service businesses that need clearer positioning, more pages, and a stronger path from visitor interest to contact.",
     outcome:
       "A sharper business presence designed to turn interest into qualified conversations.",
     positioning:
-      "Built to grow with your business, with more flexibility and a stronger digital presence.",
+      "Built to present your services clearly, support updates, and give visitors a stronger reason to reach out.",
     features: [
       "Template-based design with customization",
       "Up to 5 pages",

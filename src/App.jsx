@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import BWIcon from "./assets/BWIconTransp.png";
 import BWLogo from "./assets/BWLogoTransP.png";
 import { ADD_ONS } from "./data/addOns";
-import { CAPABILITY_SERVICES } from "./data/capabilityServices";
 import { WORK_ITEMS } from "./data/workItems";
 import { WEBSITE_TIERS } from "./data/websiteTiers";
 import {
@@ -16,7 +15,6 @@ import {
   Menu,
   Palette,
   Terminal,
-  Workflow,
   X,
 } from "lucide-react";
 
@@ -24,7 +22,6 @@ const NAV = [
   { id: "hero", label: "Home" },
   { id: "about", label: "About" },
   { id: "services", label: "Services" },
-  { id: "portfolio", label: "Projects" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -34,10 +31,10 @@ const WEBSITE_TIER_ICONS = {
   code: <Code size={20} />,
 };
 
-const CAPABILITY_SERVICE_ICONS = {
-  support: <LifeBuoy size={20} />,
-  workflow: <Workflow size={20} />,
-  palette: <Palette size={20} />,
+const SERVICE_PAGE_ICONS = {
+  website: <Globe size={20} />,
+  it: <LifeBuoy size={20} />,
+  automation: <Terminal size={20} />,
 };
 
 const IT_SERVICES = [
@@ -65,6 +62,117 @@ const DMV_SERVICE_AREAS = [
   "Bowie, MD",
 ];
 
+const OWNERSHIP_POINTS = [
+  "Black-owned",
+  "Veteran-owned",
+  "Serving the DMV area",
+];
+
+const SERVICE_PAGES = [
+  {
+    slug: "website-development",
+    icon: "website",
+    kicker: "Website Development",
+    shortTitle: "Website Development",
+    title: "Website development for small businesses in the DMV area.",
+    metaTitle: "Website Development in the DMV Area | Blackburn Works LLC",
+    metaDescription:
+      "Black-owned and veteran-owned Blackburn Works LLC builds modern small business websites for Washington, DC, Maryland, and Northern Virginia.",
+    homepageSummary:
+      "Professional websites for small businesses, personal brands, and service providers that need a clean online presence and clear next steps.",
+    lead:
+      "Blackburn Works designs and builds modern websites for businesses that need to look credible, explain their services clearly, and turn visitors into real conversations.",
+    price: "Website packages from $750",
+    timeline: "7-30 days depending on scope",
+    tags: ["Small business websites", "Responsive design", "Basic SEO", "DMV area"],
+    highlights: [
+      "Starter, business, and custom website packages",
+      "Mobile responsive layouts built for real users",
+      "Clear service sections, calls to action, and contact flow",
+    ],
+    benefits: [
+      "Clarify your offer so visitors understand what you do quickly",
+      "Create a polished first impression for customers searching locally",
+      "Give your business a web presence that can be updated without a rebuild",
+    ],
+    process: [
+      "Confirm pages, goals, and content needs",
+      "Build a clean responsive layout around your brand and services",
+      "Review, polish, deploy, and hand off with clear next steps",
+    ],
+    detailText:
+      "Website development is scoped separately from IT support. Choose a starter site, business site, or custom build when you need a professional web presence for the DMV market.",
+  },
+  {
+    slug: "it-services",
+    icon: "it",
+    kicker: "IT Services",
+    shortTitle: "IT Services",
+    title: "Affordable IT services in Washington, DC, Maryland, and Northern Virginia.",
+    metaTitle: "Affordable IT Services in the DMV Area | Blackburn Works LLC",
+    metaDescription:
+      "Affordable DMV IT services from Blackburn Works LLC. Remote support or onsite computer help within 50 miles of Washington, DC, starting at $50/hour.",
+    homepageSummary:
+      "Practical computer support for homes, home offices, and small businesses, including setup, troubleshooting, repairs, recovery support, and tune-ups.",
+    lead:
+      "Whether you are setting up a workstation, recovering important files, removing malware, or troubleshooting a stubborn computer issue, Blackburn Works provides practical help without the confusion.",
+    price: "Starting at $50/hour",
+    timeline: "Remote or onsite support",
+    tags: ["Computer repair", "PC tune-ups", "Data migration", "50-mile DC radius"],
+    highlights: [
+      "Remote support available",
+      "Onsite service within a 50-mile radius of Washington, DC",
+      "Home office and small business technology setup",
+    ],
+    benefits: [
+      "Get practical troubleshooting without a confusing sales process",
+      "Support new workstation setup, data transfers, and peripheral setup",
+      "Improve performance, remove malware, and recover from technical issues",
+    ],
+    process: [
+      "Describe the device, issue, location, and urgency",
+      "Confirm whether remote or onsite support is the best fit",
+      "Diagnose the problem and recommend clear next steps before deeper work",
+    ],
+    detailText:
+      "IT services are hourly and focused on clear, affordable support for homes, home offices, and small businesses across the DMV area.",
+  },
+  {
+    slug: "powershell-automation",
+    icon: "automation",
+    kicker: "PowerShell Automation",
+    shortTitle: "PowerShell Automation",
+    title: "PowerShell automation for repeatable IT and business workflows.",
+    metaTitle: "PowerShell Automation Services | Blackburn Works LLC",
+    metaDescription:
+      "Custom PowerShell automation from Blackburn Works LLC for workstation setup, reporting, repeatable admin tasks, and small business IT workflows.",
+    homepageSummary:
+      "Custom scripts and workflow tools that reduce manual work, standardize repeat tasks, and make internal IT processes easier to run.",
+    lead:
+      "Blackburn Works builds practical PowerShell scripts for the tasks you repeat often, from workstation setup and system checks to reporting and internal process improvements.",
+    price: "Scoped by workflow",
+    timeline: "Planned around the task",
+    tags: ["PowerShell scripts", "Workflow automation", "System checks", "Reporting"],
+    highlights: [
+      "Workstation setup automation",
+      "Repeatable admin tasks and reporting",
+      "Internal IT workflow improvements",
+    ],
+    benefits: [
+      "Reduce repetitive technical work that eats up time",
+      "Make routine tasks more consistent and easier to hand off",
+      "Build tools around the way your environment actually works",
+    ],
+    process: [
+      "Identify the task, inputs, outputs, and success criteria",
+      "Build and review a practical script or tool for the workflow",
+      "Document usage so the automation is easier to maintain",
+    ],
+    detailText:
+      "Automation is scoped around the workflow or tool you need. It is a separate service from website development and hourly IT support.",
+  },
+];
+
 const year = new Date().getFullYear();
 
 const scrollToId = (id) => {
@@ -73,10 +181,47 @@ const scrollToId = (id) => {
   el.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
+const DEFAULT_META = {
+  title: "Black-Owned Veteran-Owned Web & IT Services in the DMV | Blackburn Works LLC",
+  description:
+    "Black-owned and veteran-owned Blackburn Works LLC provides website development, PowerShell automation, and affordable IT services for Washington, DC, Maryland, and Northern Virginia.",
+};
+
+const WEB_APP_WORK_ITEMS = WORK_ITEMS.filter(
+  (item) =>
+    !item.tags?.includes("PowerShell") &&
+    item.tags?.some((tag) => ["Web", "Mobile", "MVP", "UI/UX"].includes(tag)),
+);
+
+const setMetaContent = (selector, content) => {
+  const element = document.querySelector(selector);
+  if (element) {
+    element.setAttribute("content", content);
+  }
+};
+
+function usePageMeta({ title, description }) {
+  useEffect(() => {
+    document.title = title;
+    setMetaContent('meta[name="description"]', description);
+    setMetaContent('meta[property="og:title"]', title);
+    setMetaContent('meta[property="og:description"]', description);
+    setMetaContent('meta[name="twitter:title"]', title);
+    setMetaContent('meta[name="twitter:description"]', description);
+  }, [title, description]);
+}
+
 export default function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      {SERVICE_PAGES.map((service) => (
+        <Route
+          key={service.slug}
+          path={`/services/${service.slug}`}
+          element={<ServicePage service={service} />}
+        />
+      ))}
       {WORK_ITEMS.map((item) => (
         <Route
           key={item.slug}
@@ -89,7 +234,18 @@ export default function App() {
 }
 
 function HomePage() {
+  usePageMeta(DEFAULT_META);
+
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const id = window.location.hash.replace("#", "");
+    if (!id) return;
+    const scroll = () => scrollToId(id);
+    window.requestAnimationFrame(scroll);
+    const timeout = window.setTimeout(scroll, 150);
+    return () => window.clearTimeout(timeout);
+  }, []);
 
   const handleNavClick = (id) => {
     setMenuOpen(false);
@@ -163,6 +319,11 @@ function HomePage() {
                   presence, IT services for computer support, and automation for
                   repeatable business workflows.
                 </p>
+                <div className="bw-identityRow" aria-label="Business ownership and service area">
+                  {OWNERSHIP_POINTS.map((point) => (
+                    <span key={point}>{point}</span>
+                  ))}
+                </div>
                 <div className="bw-heroActions">
                   <button
                     className="bw-btn bw-btnPrimary"
@@ -215,10 +376,10 @@ function HomePage() {
                   Built with clarity, speed, and a product-first mindset.
                 </h2>
                 <p className="bw-sectionText">
-                  Blackburn Works creates modern websites that feel polished,
-                  usable, and ready to grow. PowerShell scripting is available
-                  when your business needs practical tools that support the work
-                  happening behind the website.
+                  Blackburn Works is a Black-owned and veteran-owned technology
+                  business creating modern websites, practical IT support, and
+                  PowerShell tools for homes, home offices, and small businesses
+                  across the DMV area.
                 </p>
 
                 <button
@@ -269,10 +430,10 @@ function HomePage() {
                     <div className="bw-aboutFeatureIcon">
                       <LayoutGrid size={20} />
                     </div>
-                    <h3>Built to Scale</h3>
+                    <h3>Easy to Update</h3>
                     <p>
-                      Flexible foundations that can grow from a landing page into
-                      something bigger.
+                      Service sections, calls to action, and pages organized so
+                      future edits are easier to make.
                     </p>
                   </div>
                 </div>
@@ -285,155 +446,43 @@ function HomePage() {
           <div className="container bw-shell">
             <SectionHeader
               title="Services"
-              text="Blackburn Works offers three distinct services: website development, PowerShell automation, and affordable IT services for homes, home offices, and small businesses across the Washington, DC, Maryland, and Northern Virginia area."
+              text="Blackburn Works is a Black-owned and veteran-owned technology business serving the DMV area with three clear service paths: website development, IT services, and PowerShell automation."
             />
 
-            <div className="bw-subsectionIntro">
-              <div className="bw-sectionLabel">Website Development</div>
-              <h3 className="bw-subsectionTitle">
-                Website builds for a polished online presence.
-              </h3>
-              <p className="bw-subsectionText">
-                Website development is scoped separately from hourly IT support:
-                choose a starter site, business site, or custom website build
-                when you need a professional web presence.
-              </p>
-            </div>
-
-            <div className="row g-4 align-items-stretch">
-              {WEBSITE_TIERS.map((tier) => (
-                <div key={tier.title} className="col-xl-4 col-md-6">
-                  <WebsiteTierCard tier={tier} />
-                </div>
+            <div className="bw-ownershipStrip">
+              {OWNERSHIP_POINTS.map((point) => (
+                <span key={point}>{point}</span>
               ))}
             </div>
 
-            <p className="bw-servicesNote">
-              Timeline begins once all content and assets are provided.
-            </p>
-
-            <div className="bw-serviceSplit">
-              <div className="bw-subsectionIntro">
-                <div className="bw-sectionLabel">After Launch</div>
-                <h3 className="bw-subsectionTitle">
-                  Ongoing Support &amp; Growth
-                </h3>
-                <p className="bw-subsectionText">
-                  Support doesn&apos;t stop once the site goes live. Blackburn Works
-                  helps keep your website running smoothly, handles updates
-                  without forcing a rebuild, and supports changes as your
-                  business grows.
-                </p>
-              </div>
-
-              <div className="row g-4">
-                {CAPABILITY_SERVICES.map((service) => (
-                  <div key={service.title} className="col-lg-4">
-                    <AdditionalServiceCard service={service} />
-                  </div>
-                ))}
-              </div>
+            <div className="bw-serviceOverviewGrid">
+              {SERVICE_PAGES.map((service) => (
+                <ServiceOverviewCard key={service.slug} service={service} />
+              ))}
             </div>
 
-            <p className="bw-automationBridge">
-              Beyond the website, I also build PowerShell tools that help
-              automate repetitive tasks and improve how systems run behind the
-              scenes.
-            </p>
-
-            <div className="bw-addonsPanel">
-              <div className="bw-addonsHeader">
-                <div>
-                  <div className="bw-sectionLabel">Enhancements</div>
-                  <h3 className="bw-subsectionTitle">
-                    PowerShell Automation &amp; Tools
-                  </h3>
-                  <p className="bw-subsectionText bw-subsectionTextTight">
-                    Custom PowerShell scripts designed to reduce manual work,
-                    standardize processes, and improve efficiency across your
-                    systems.
-                  </p>
-                  <p className="bw-subsectionText bw-subsectionTextTight">
-                    Built for everything from individual workstations to growing
-                    business environments.
-                  </p>
-                </div>
-                  <button
-                    className="bw-btn bw-btnPrimary"
-                    type="button"
-                    onClick={() => scrollToId("contact")}
-                  >
-                    Start Your Project
-                  </button>
-              </div>
-
-              <div className="bw-addonsGrid">
-                {ADD_ONS.map((item) => (
-                  <div key={item} className="bw-addonChip">
-                    <Check size={16} />
-                    <span>{item}</span>
-                  </div>
+            <div className="bw-localServiceArea bw-serviceAreaCompact">
+              <span>Local service area</span>
+              <p>
+                Remote support is available, and onsite IT service is available
+                within a 50-mile radius of Washington, DC.
+              </p>
+              <div className="bw-tagRow">
+                {DMV_SERVICE_AREAS.map((area) => (
+                  <span key={area} className="bw-tag">
+                    {area}
+                  </span>
                 ))}
-              </div>
-            </div>
-
-            <div className="bw-itServicesPanel">
-              <div className="bw-itServicesIntro">
-                <div>
-                  <div className="bw-sectionLabel">IT Services</div>
-                  <h3 className="bw-subsectionTitle">
-                    Affordable IT services for the DMV area.
-                  </h3>
-                  <p className="bw-subsectionText bw-subsectionTextTight">
-                    Whether you&apos;re setting up a new workstation, recovering
-                    important files, or troubleshooting technical issues,
-                    Blackburn Works provides practical solutions without the
-                    confusion.
-                  </p>
-                </div>
-
-                <div className="bw-itPricingCard">
-                  <span>Pricing</span>
-                  <strong>Starting at $50/hour</strong>
-                </div>
-              </div>
-
-              <div className="bw-itServicesGrid">
-                {IT_SERVICES.map((service) => (
-                  <div key={service} className="bw-itServiceItem">
-                    <Check size={16} />
-                    <span>{service}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="bw-itAvailability">
-                <LifeBuoy size={18} />
-                <span>
-                  Remote support available or onsite service within a 50-mile
-                  radius of Washington, DC.
-                </span>
-              </div>
-
-              <div className="bw-localServiceArea">
-                <span>Serving the DMV area</span>
-                <div className="bw-tagRow">
-                  {DMV_SERVICE_AREAS.map((area) => (
-                    <span key={area} className="bw-tag">
-                      {area}
-                    </span>
-                  ))}
-                </div>
               </div>
             </div>
 
             <div className="bw-servicesCta bw-servicesCtaWide">
               <div>
-                <h3>Ready to start website development, IT support, or automation?</h3>
+                <h3>Not sure which service fits?</h3>
                 <p>
-                  Website development is scoped as a package or custom build. IT
-                  services are hourly, starting at $50/hour. PowerShell
-                  automation is scoped around the workflow or tool you need.
+                  Send the basics and Blackburn Works will help route the
+                  request clearly: website build, hourly IT support, automation,
+                  or a combination that makes sense.
                 </p>
               </div>
               <div className="bw-servicesCtaActions">
@@ -486,28 +535,6 @@ function HomePage() {
               <ProcessStep number="01" title="Share the goal" text="Send the essentials: what you need, who it is for, and what success should look like." />
               <ProcessStep number="02" title="Confirm the scope" text="You get a clear direction, package fit, timeline, and next-step recommendation." />
               <ProcessStep number="03" title="Launch with polish" text="The build moves through design, development, review, and deployment with launch readiness in mind." />
-            </div>
-          </div>
-        </section>
-
-        <section id="portfolio" className="bw-section">
-          <div className="container bw-shell">
-            <SectionHeader
-              title="Projects"
-              text="Selected builds that show how Blackburn Works turns product ideas, brand presence, and operational needs into polished digital experiences."
-            />
-
-            <div className="bw-filterRow">
-              <span className="bw-filterPill bw-filterPillActive">All Projects</span>
-              <span className="bw-filterPill">Web</span>
-              <span className="bw-filterPill">Product</span>
-              <span className="bw-filterPill">PowerShell Automation</span>
-            </div>
-
-            <div className="row g-4">
-              {WORK_ITEMS.map((item) => (
-                <ProjectCard key={item.slug} item={item} />
-              ))}
             </div>
           </div>
         </section>
@@ -625,9 +652,9 @@ function HomePage() {
                 <span>Blackburn Works LLC</span>
               </div>
               <p className="bw-footerCopy">
-                Modern websites, practical PowerShell automation, and affordable
-                DMV-area IT services for homes, home offices, and small
-                businesses.
+                Black-owned and veteran-owned. Modern websites, practical
+                PowerShell automation, and affordable DMV-area IT services for
+                homes, home offices, and small businesses.
               </p>
             </div>
 
@@ -651,6 +678,8 @@ function HomePage() {
               <h4 className="bw-footerTitle">Blackburn Works</h4>
               <div className="bw-footerMeta">
                 <span>Website Development</span>
+                <span>Black-owned Business</span>
+                <span>Veteran-owned Business</span>
                 <span>Affordable DMV IT Support</span>
                 <span>PC Repair & Troubleshooting</span>
                 <span>UI/UX</span>
@@ -666,7 +695,265 @@ function HomePage() {
   );
 }
 
+function ServicePage({ service }) {
+  usePageMeta({
+    title: service.metaTitle,
+    description: service.metaDescription,
+  });
+
+  useEffect(() => {
+    const id = window.location.hash.replace("#", "");
+    if (!id) return;
+    const scroll = () => scrollToId(id);
+    window.requestAnimationFrame(scroll);
+    const timeout = window.setTimeout(scroll, 150);
+    return () => window.clearTimeout(timeout);
+  }, [service.slug]);
+
+  const isWebsite = service.slug === "website-development";
+  const isIT = service.slug === "it-services";
+  const isAutomation = service.slug === "powershell-automation";
+
+  return (
+    <div className="bw-site">
+      <header className="bw-header sticky-top">
+        <div className="container bw-shell">
+          <div className="bw-headerInner">
+            <Link to="/" className="bw-brandWrap bw-brandLink">
+              <img src={BWIcon} alt="Blackburn Works" className="bw-brandIcon" />
+              <span className="bw-brandText">Blackburn Works LLC</span>
+            </Link>
+
+            <div className="bw-detailActions">
+              <Link to="/#services" className="bw-btn bw-btnSecondary text-decoration-none">
+                All Services
+              </Link>
+              <Link to="/#contact" className="bw-btn bw-btnPrimary text-decoration-none">
+                Start Your Project
+              </Link>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section className="bw-section bw-detailHero bw-serviceDetailHero">
+          <div className="container bw-shell">
+            <div className="row align-items-center gy-5">
+              <div className="col-lg-7">
+                <div className="bw-kicker">{service.kicker}</div>
+                <h1 className="bw-display bw-detailTitle">{service.title}</h1>
+                <p className="bw-lead">{service.lead}</p>
+                <div className="bw-identityRow" aria-label="Business ownership and service area">
+                  {OWNERSHIP_POINTS.map((point) => (
+                    <span key={point}>{point}</span>
+                  ))}
+                </div>
+                <div className="bw-tagRow">
+                  {service.tags.map((tag) => (
+                    <span key={tag} className="bw-tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="col-lg-5">
+                <div className="bw-detailCard bw-serviceSummaryCard">
+                  <div className="bw-serviceIcon">{SERVICE_PAGE_ICONS[service.icon]}</div>
+                  <h3>{service.shortTitle}</h3>
+                  <p>{service.homepageSummary}</p>
+                  <div className="bw-tierMetaGrid">
+                    <div className="bw-tierMeta">
+                      <div className="bw-tierMetaLabel">Pricing</div>
+                      <div className="bw-tierMetaValue">{service.price}</div>
+                    </div>
+                    <div className="bw-tierMeta">
+                      <div className="bw-tierMetaLabel">Timeline / Availability</div>
+                      <div className="bw-tierMetaValue">{service.timeline}</div>
+                    </div>
+                  </div>
+                  <Link to="/#contact" className="bw-btn bw-btnPrimary text-decoration-none">
+                    Request This Service
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bw-section bw-sectionAlt">
+          <div className="container bw-shell">
+            <SectionHeader title={`${service.shortTitle} details`} text={service.detailText} />
+
+            <div className="bw-serviceDetailGrid">
+              <ServiceDetailList title="Common needs" items={service.highlights} />
+              <ServiceDetailList title="How this helps" items={service.benefits} />
+              <ServiceDetailList title="Process" items={service.process} />
+            </div>
+
+            {isWebsite ? (
+              <div className="bw-servicePageSection">
+                <div id="website-portfolio" className="bw-servicePageSectionAnchor">
+                  <div className="bw-subsectionIntro">
+                    <div className="bw-sectionLabel">Website &amp; App Portfolio</div>
+                    <h2 className="bw-subsectionTitle">
+                      Webpages, apps, and product-style builds.
+                    </h2>
+                    <p className="bw-subsectionText">
+                      A focused look at Blackburn Works website and app projects,
+                      separated from IT support and PowerShell automation so the
+                      web development work is easier to review.
+                    </p>
+                  </div>
+
+                  <div className="row g-4">
+                    {WEB_APP_WORK_ITEMS.map((item) => (
+                      <ProjectCard key={item.slug} item={item} />
+                    ))}
+                  </div>
+                </div>
+
+                <div className="bw-subsectionIntro">
+                  <div className="bw-sectionLabel">Website Packages</div>
+                  <h2 className="bw-subsectionTitle">Choose the right website scope.</h2>
+                  <p className="bw-subsectionText">
+                    Website development is offered as starter, business, or custom
+                    work so the scope matches the size of the business need.
+                  </p>
+                </div>
+
+                <div className="row g-4 align-items-stretch">
+                  {WEBSITE_TIERS.map((tier) => (
+                    <div key={tier.title} className="col-xl-4 col-md-6">
+                      <WebsiteTierCard tier={tier} />
+                    </div>
+                  ))}
+                </div>
+
+                <p className="bw-servicesNote">
+                  Timeline begins once all content and assets are provided.
+                </p>
+              </div>
+            ) : null}
+
+            {isIT ? (
+              <div className="bw-itServicesPanel bw-servicePageSection">
+                <div className="bw-itServicesIntro">
+                  <div>
+                    <div className="bw-sectionLabel">IT Support List</div>
+                    <h2 className="bw-subsectionTitle">
+                      Computer help without the confusion.
+                    </h2>
+                    <p className="bw-subsectionText bw-subsectionTextTight">
+                      Remote support is available, and onsite service is
+                      available within a 50-mile radius of Washington, DC.
+                    </p>
+                  </div>
+
+                  <div className="bw-itPricingCard">
+                    <span>Pricing</span>
+                    <strong>Starting at $50/hour</strong>
+                  </div>
+                </div>
+
+                <div className="bw-itServicesGrid">
+                  {IT_SERVICES.map((item) => (
+                    <div key={item} className="bw-itServiceItem">
+                      <Check size={16} />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="bw-itAvailability">
+                  <LifeBuoy size={18} />
+                  <span>
+                    Remote support available or onsite service within a 50-mile
+                    radius of Washington, DC.
+                  </span>
+                </div>
+              </div>
+            ) : null}
+
+            {isAutomation ? (
+              <div className="bw-addonsPanel bw-servicePageSection">
+                <div className="bw-addonsHeader">
+                  <div>
+                    <div className="bw-sectionLabel">Automation Examples</div>
+                    <h2 className="bw-subsectionTitle">
+                      PowerShell tools for practical repeat work.
+                    </h2>
+                    <p className="bw-subsectionText bw-subsectionTextTight">
+                      Automation work is scoped around the real workflow, the
+                      environment it needs to run in, and the outcome it should
+                      produce.
+                    </p>
+                  </div>
+                  <Link to="/#contact" className="bw-btn bw-btnPrimary text-decoration-none">
+                    Start Automation
+                  </Link>
+                </div>
+
+                <div className="bw-addonsGrid">
+                  {ADD_ONS.map((item) => (
+                    <div key={item} className="bw-addonChip">
+                      <Check size={16} />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+
+            <div className="bw-localServiceArea bw-servicePageSection">
+              <span>DMV service area</span>
+              <p>
+                Blackburn Works serves Washington, DC, Maryland, and Northern
+                Virginia with remote service options and local onsite IT support
+                where available.
+              </p>
+              <div className="bw-tagRow">
+                {DMV_SERVICE_AREAS.map((area) => (
+                  <span key={area} className="bw-tag">
+                    {area}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="bw-servicesCta bw-servicesCtaWide">
+              <div>
+                <h3>Ready to talk through {service.shortTitle}?</h3>
+                <p>
+                  Send the details you have. Blackburn Works will respond with
+                  clear next steps, practical scope guidance, and no hard sell.
+                </p>
+              </div>
+              <div className="bw-servicesCtaActions">
+                <Link to="/#contact" className="bw-btn bw-btnPrimary text-decoration-none">
+                  Start Your Project
+                </Link>
+                <Link to="/#services" className="bw-btn bw-btnSecondary text-decoration-none">
+                  Compare Services
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <ServiceFooter />
+    </div>
+  );
+}
+
 function WorkPage({ item }) {
+  usePageMeta({
+    title: `${item.title} | Blackburn Works LLC`,
+    description: item.shortDesc || item.desc,
+  });
+
   return (
     <div className="bw-site">
       <header className="bw-header sticky-top">
@@ -770,11 +1057,101 @@ function SectionHeader({ title, text }) {
   );
 }
 
+function ServiceFooter() {
+  return (
+    <footer className="bw-footer">
+      <div className="container bw-shell">
+        <div className="bw-footerGrid">
+          <div>
+            <div className="bw-footerBrand">
+              <img src={BWIcon} alt="Blackburn Works" className="bw-footerIcon" />
+              <span>Blackburn Works LLC</span>
+            </div>
+            <p className="bw-footerCopy">
+              Black-owned and veteran-owned technology support for websites,
+              automation, and affordable IT services across the DMV area.
+            </p>
+          </div>
+
+          <div>
+            <h4 className="bw-footerTitle">Services</h4>
+            <div className="bw-footerLinks">
+              {SERVICE_PAGES.map((service) => (
+                <Link
+                  key={service.slug}
+                  to={`/services/${service.slug}`}
+                  className="bw-footerLink text-decoration-none"
+                >
+                  {service.shortTitle}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h4 className="bw-footerTitle">Service Area</h4>
+            <div className="bw-footerMeta">
+              <span>Washington, DC</span>
+              <span>Maryland</span>
+              <span>Northern Virginia</span>
+              <span>Remote Support</span>
+              <span>Onsite IT within 50 miles of DC</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="bw-footerBottom">© 2025 - {year} Blackburn Works LLC</div>
+      </div>
+    </footer>
+  );
+}
+
 function StatCard({ value, label }) {
   return (
     <div className="bw-statCard">
       <div className="bw-statValue">{value}</div>
       <div className="bw-statLabel">{label}</div>
+    </div>
+  );
+}
+
+function ServiceOverviewCard({ service }) {
+  return (
+    <Link
+      to={`/services/${service.slug}`}
+      className="bw-serviceCard bw-serviceOverviewCard text-decoration-none"
+    >
+      <div className="bw-serviceIcon">{SERVICE_PAGE_ICONS[service.icon]}</div>
+      <div className="bw-tierEyebrow">{service.kicker}</div>
+      <h3>{service.shortTitle}</h3>
+      <p>{service.homepageSummary}</p>
+      <ul className="bw-featureList bw-featureListCompact">
+        {service.highlights.map((item) => (
+          <li key={item}>
+            <Check size={16} />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+      <span className="bw-serviceLearnMore">
+        Learn more <ArrowRight size={16} />
+      </span>
+    </Link>
+  );
+}
+
+function ServiceDetailList({ title, items }) {
+  return (
+    <div className="bw-detailCard">
+      <h3>{title}</h3>
+      <ul className="bw-featureList">
+        {items.map((item) => (
+          <li key={item}>
+            <Check size={16} />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -849,32 +1226,13 @@ function WebsiteTierCard({ tier }) {
         ))}
       </ul>
 
-      <button
-        className={`bw-btn ${tier.featured ? "bw-btnPrimary" : "bw-btnSecondary"} bw-tierButton`}
-        type="button"
-        onClick={() => scrollToId("contact")}
+      <Link
+        className={`bw-btn ${tier.featured ? "bw-btnPrimary" : "bw-btnSecondary"} bw-tierButton text-decoration-none`}
+        to="/#contact"
       >
         {tier.cta}
         <ArrowRight size={16} />
-      </button>
-    </div>
-  );
-}
-
-function AdditionalServiceCard({ service }) {
-  return (
-    <div className="bw-serviceCard bw-serviceCardExpanded">
-      <div className="bw-serviceIcon">{CAPABILITY_SERVICE_ICONS[service.icon]}</div>
-      <h3>{service.title}</h3>
-      <p>{service.desc}</p>
-      <ul className="bw-featureList bw-featureListCompact">
-        {service.features.map((feature) => (
-          <li key={feature}>
-            <Check size={16} />
-            <span>{feature}</span>
-          </li>
-        ))}
-      </ul>
+      </Link>
     </div>
   );
 }

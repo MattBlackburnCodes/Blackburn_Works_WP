@@ -1,19 +1,19 @@
 :root {
-  --bw-bg: #070707;
-  --bw-surface: rgba(255, 255, 255, 0.05);
-  --bw-surface-strong: rgba(255, 255, 255, 0.08);
-  --bw-border: rgba(255, 255, 255, 0.12);
+  --bw-bg: #1b1917;
+  --bw-surface: rgba(255, 255, 255, 0.075);
+  --bw-surface-strong: rgba(255, 255, 255, 0.115);
+  --bw-border: rgba(255, 255, 255, 0.16);
   --bw-border-strong: rgba(212, 175, 55, 0.24);
-  --bw-text: rgba(255, 255, 255, 0.94);
-  --bw-muted: rgba(255, 255, 255, 0.72);
-  --bw-soft: rgba(255, 255, 255, 0.56);
+  --bw-text: rgba(255, 255, 255, 0.96);
+  --bw-muted: rgba(255, 255, 255, 0.77);
+  --bw-soft: rgba(255, 255, 255, 0.62);
   --bw-gold: #d4af37;
   --bw-gold-deep: #8c6b12;
-  --bw-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  --bw-shadow: 0 20px 58px rgba(0, 0, 0, 0.28);
   color: var(--bw-text);
   background:
-    radial-gradient(circle at top left, rgba(212, 175, 55, 0.22), transparent 32%),
-    radial-gradient(circle at top right, rgba(255, 255, 255, 0.08), transparent 20%),
+    radial-gradient(circle at top left, rgba(212, 175, 55, 0.2), transparent 32%),
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.1), transparent 22%),
     var(--bw-bg);
   font-family: "Poppins", "Segoe UI", sans-serif;
   line-height: 1.5;
@@ -65,9 +65,9 @@ img {
 .bw-site {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 10% 0%, rgba(212, 175, 55, 0.14), transparent 32%),
-    radial-gradient(circle at 85% 10%, rgba(255, 255, 255, 0.06), transparent 22%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 18%),
+    radial-gradient(circle at 10% 0%, rgba(212, 175, 55, 0.13), transparent 32%),
+    radial-gradient(circle at 85% 10%, rgba(255, 255, 255, 0.09), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), transparent 20%),
     var(--bw-bg);
 }
 
@@ -79,9 +79,9 @@ img {
 }
 
 .bw-header {
-  background: rgba(7, 7, 7, 0.82);
+  background: rgba(25, 23, 20, 0.9);
   backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   z-index: 20;
 }
 
@@ -189,13 +189,13 @@ img {
 }
 
 .bw-btnSecondary {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.06);
   color: var(--bw-text);
   border-color: rgba(255, 255, 255, 0.16);
 }
 
 .bw-btnSecondary:hover {
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.105);
   border-color: rgba(212, 175, 55, 0.3);
   color: #f7e7ad;
 }
@@ -263,6 +263,31 @@ img {
   margin-top: 2rem;
 }
 
+.bw-identityRow,
+.bw-ownershipStrip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.bw-identityRow {
+  margin-top: 1.25rem;
+}
+
+.bw-identityRow span,
+.bw-ownershipStrip span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  background: rgba(255, 255, 255, 0.065);
+  color: #f1df9e;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
 .bw-statsGrid {
   margin-top: 2.5rem;
   display: grid;
@@ -280,7 +305,7 @@ img {
 .bw-servicesCta,
 .bw-projectPreview {
   border: 1px solid var(--bw-border);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.105), rgba(255, 255, 255, 0.062));
   border-radius: 28px;
   box-shadow: var(--bw-shadow);
   transition:
@@ -302,7 +327,7 @@ img {
 .bw-detailCard:hover {
   transform: translateY(-3px);
   border-color: rgba(212, 175, 55, 0.22);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.06));
 }
 
 .bw-statValue {
@@ -330,7 +355,7 @@ img {
   border: 1px solid var(--bw-border);
   background:
     radial-gradient(circle at top, rgba(212, 175, 55, 0.18), transparent 34%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.115), rgba(255, 255, 255, 0.055));
   box-shadow: var(--bw-shadow);
 }
 
@@ -362,7 +387,7 @@ img {
   padding: 0.85rem 1rem;
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(7, 7, 7, 0.7);
+  background: rgba(30, 28, 24, 0.84);
   color: var(--bw-text);
   font-weight: 600;
 }
@@ -423,7 +448,7 @@ img {
 .bw-bgShapeTwo {
   width: 320px;
   height: 320px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.07);
   right: -120px;
   bottom: -120px;
 }
@@ -443,9 +468,9 @@ img {
 }
 
 .bw-sectionAlt {
-  background: rgba(255, 255, 255, 0.02);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .bw-sectionTitle,
@@ -504,7 +529,7 @@ img {
   border-radius: 28px;
   border: 1px solid var(--bw-border);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.095), rgba(255, 255, 255, 0.052));
   box-shadow: var(--bw-shadow);
   transition:
     transform 0.2s ease,
@@ -515,13 +540,13 @@ img {
 .bw-aboutFeatureCard:hover {
   transform: translateY(-4px);
   border-color: rgba(212, 175, 55, 0.24);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24);
 }
 
 .bw-aboutFeatureCardAccent {
   background:
     radial-gradient(circle at top left, rgba(212, 175, 55, 0.14), transparent 45%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.115), rgba(255, 255, 255, 0.055));
   border-color: rgba(212, 175, 55, 0.18);
 }
 
@@ -567,7 +592,7 @@ img {
 .bw-aboutMainCard {
   inset: 0 12% 10% 0;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.115), rgba(255, 255, 255, 0.06));
 }
 
 .bw-windowBar {
@@ -598,8 +623,8 @@ img {
 .bw-uiRow,
 .bw-uiCard {
   border-radius: 22px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .bw-uiRow {
@@ -624,7 +649,7 @@ img {
   bottom: 9%;
   width: min(280px, 100%);
   padding: 1.25rem;
-  background: rgba(7, 7, 7, 0.88);
+  background: rgba(32, 30, 26, 0.92);
 }
 
 .bw-aboutStat + .bw-aboutStat {
@@ -704,6 +729,63 @@ img {
   color: var(--bw-muted);
 }
 
+.bw-serviceOverviewGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.bw-serviceOverviewCard {
+  display: flex;
+  flex-direction: column;
+  color: var(--bw-text);
+}
+
+.bw-serviceOverviewCard .bw-featureList {
+  margin-bottom: 1.25rem;
+}
+
+.bw-serviceLearnMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: auto;
+  color: #f1df9e;
+  font-weight: 800;
+}
+
+.bw-serviceDetailGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.bw-serviceSummaryCard .bw-btn {
+  width: 100%;
+}
+
+.bw-servicePageSection {
+  margin-top: 2rem;
+}
+
+.bw-servicePageSectionAnchor {
+  scroll-margin-top: 110px;
+}
+
+.bw-servicePageSectionAnchor + .bw-subsectionIntro {
+  margin-top: 2.25rem;
+}
+
+.bw-serviceAreaCompact {
+  margin-top: 1.5rem;
+}
+
+.bw-serviceAreaCompact p,
+.bw-localServiceArea p {
+  margin: 0 0 1rem;
+  color: var(--bw-muted);
+}
+
 .bw-servicesNote,
 .bw-subsectionText,
 .bw-automationBridge {
@@ -759,7 +841,7 @@ img {
   border-radius: 30px;
   background:
     radial-gradient(circle at top left, rgba(212, 175, 55, 0.08), transparent 34%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.095), rgba(255, 255, 255, 0.052));
   box-shadow: var(--bw-shadow);
   transition:
     transform 0.2s ease,
@@ -771,14 +853,14 @@ img {
 .bw-serviceCard:hover {
   transform: translateY(-4px);
   border-color: rgba(212, 175, 55, 0.24);
-  box-shadow: 0 20px 46px rgba(0, 0, 0, 0.36);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
 }
 
 .bw-tierCardFeatured {
   border-color: rgba(212, 175, 55, 0.4);
   background:
     radial-gradient(circle at top left, rgba(212, 175, 55, 0.18), transparent 38%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
 }
 
 .bw-tierHeader h3,
@@ -833,7 +915,7 @@ img {
   padding: 1rem 1.1rem;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .bw-tierMetaValue {
@@ -950,7 +1032,7 @@ img {
   border-radius: 30px;
   background:
     radial-gradient(circle at top right, rgba(212, 175, 55, 0.12), transparent 30%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.03));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.05));
   box-shadow: var(--bw-shadow);
 }
 
@@ -976,7 +1058,7 @@ img {
   padding: 1rem 1.1rem;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.06);
   color: var(--bw-text);
   font-weight: 500;
 }
@@ -988,7 +1070,7 @@ img {
   border-radius: 30px;
   background:
     radial-gradient(circle at top left, rgba(212, 175, 55, 0.12), transparent 32%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.03));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.052));
   box-shadow: var(--bw-shadow);
 }
 
@@ -1038,7 +1120,7 @@ img {
   padding: 1rem 1.1rem;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.06);
   color: var(--bw-text);
   font-weight: 500;
 }
@@ -1061,7 +1143,7 @@ img {
   padding: 1rem 1.1rem;
   border-radius: 20px;
   border: 1px solid rgba(212, 175, 55, 0.18);
-  background: rgba(7, 7, 7, 0.32);
+  background: rgba(32, 30, 26, 0.52);
   color: var(--bw-muted);
   font-weight: 500;
 }
@@ -1070,8 +1152,8 @@ img {
   margin-top: 1.25rem;
   padding: 1.1rem;
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .bw-localServiceArea > span {
@@ -1108,7 +1190,7 @@ img {
 }
 
 .bw-trustSection {
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .bw-trustGrid {
@@ -1134,7 +1216,7 @@ img {
   padding: 1.35rem;
   border: 1px solid var(--bw-border);
   border-radius: 24px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.05));
   box-shadow: var(--bw-shadow);
   transition:
     transform 0.2s ease,
@@ -1145,7 +1227,7 @@ img {
 .bw-trustCard:hover {
   transform: translateY(-3px);
   border-color: rgba(212, 175, 55, 0.24);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.115), rgba(255, 255, 255, 0.062));
 }
 
 .bw-trustMark {
@@ -1187,7 +1269,7 @@ img {
   border-radius: 28px;
   background:
     radial-gradient(circle at top left, rgba(212, 175, 55, 0.12), transparent 28%),
-    rgba(255, 255, 255, 0.03);
+    rgba(255, 255, 255, 0.058);
   overflow: hidden;
 }
 
@@ -1230,7 +1312,7 @@ img {
   padding: 0.55rem 0.9rem;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.06);
   color: var(--bw-muted);
   font-size: 0.88rem;
   font-weight: 600;
@@ -1255,15 +1337,15 @@ img {
 .bw-projectCard:hover {
   transform: translateY(-4px);
   border-color: rgba(212, 175, 55, 0.26);
-  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.38);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035));
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.06));
 }
 
 .bw-projectThumb {
   aspect-ratio: 4 / 3;
   background:
     radial-gradient(circle at top left, rgba(212, 175, 55, 0.24), transparent 28%),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+    linear-gradient(145deg, rgba(255, 255, 255, 0.115), rgba(255, 255, 255, 0.055));
   border-bottom: 1px solid var(--bw-border);
   overflow: hidden;
 }
@@ -1331,15 +1413,15 @@ img {
 }
 
 .bw-input {
-  background: rgba(255, 255, 255, 0.04) !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  background: rgba(255, 255, 255, 0.07) !important;
+  border: 1px solid rgba(255, 255, 255, 0.17) !important;
   color: var(--bw-text) !important;
   border-radius: 18px !important;
   padding: 0.95rem 1rem !important;
 }
 
 .bw-input::placeholder {
-  color: rgba(255, 255, 255, 0.44);
+  color: rgba(255, 255, 255, 0.54);
 }
 
 .bw-input:focus {
@@ -1382,8 +1464,8 @@ img {
 .bw-metaMap {
   padding: 1.2rem;
   border-radius: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .bw-metaMap {
@@ -1393,7 +1475,7 @@ img {
   color: var(--bw-soft);
   background:
     radial-gradient(circle at center, rgba(212, 175, 55, 0.12), transparent 35%),
-    rgba(255, 255, 255, 0.03);
+    rgba(255, 255, 255, 0.06);
 }
 
 .bw-footer {
@@ -1477,6 +1559,8 @@ img {
   }
 
   .bw-statsGrid,
+  .bw-serviceOverviewGrid,
+  .bw-serviceDetailGrid,
   .bw-methodGrid,
   .bw-contactMeta,
   .bw-footerGrid,
@@ -1576,7 +1660,7 @@ img {
     overflow: visible;
     border-radius: 24px;
     border: 1px solid var(--bw-border);
-    background: rgba(7, 7, 7, 0.92);
+    background: rgba(28, 26, 23, 0.96);
     box-shadow: var(--bw-shadow);
   }
 
