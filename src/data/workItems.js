@@ -1,5 +1,5 @@
-import nuggetImg from "../assets/DailyNugget.png"
-import coachesLoungeImg from "../assets/CoachesLounge.png"
+import nuggetImg from "../assets/DailyNuggetOptimized.png"
+import coachesLoungeImg from "../assets/CoachesLoungeOptimized.png"
 import automationToolsImg from "../assets/AutomationTools.svg"
 import barrigasAndFriendsImg from "../assets/barrigas-profile.jpg"
 

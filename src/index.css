@@ -760,6 +760,12 @@ img {
   gap: 1rem;
 }
 
+.bw-faqGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
 .bw-serviceSummaryCard .bw-btn {
   width: 100%;
 }
@@ -1424,6 +1430,11 @@ img {
   color: rgba(255, 255, 255, 0.54);
 }
 
+select.bw-input option {
+  background: #1b1917;
+  color: #f8f4ea;
+}
+
 .bw-input:focus {
   border-color: rgba(212, 175, 55, 0.35) !important;
   box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.12) !important;
@@ -1561,6 +1572,7 @@ img {
   .bw-statsGrid,
   .bw-serviceOverviewGrid,
   .bw-serviceDetailGrid,
+  .bw-faqGrid,
   .bw-methodGrid,
   .bw-contactMeta,
   .bw-footerGrid,

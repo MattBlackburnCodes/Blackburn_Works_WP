@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
-import BWIcon from "./assets/BWIconTransp.png";
-import BWLogo from "./assets/BWLogoTransP.png";
+import BWIcon from "./assets/BWIconTranspOptimized.png";
+import BWLogo from "./assets/BWLogoTransPOptimized.png";
 import { ADD_ONS } from "./data/addOns";
 import { WORK_ITEMS } from "./data/workItems";
 import { WEBSITE_TIERS } from "./data/websiteTiers";
@@ -102,6 +102,23 @@ const SERVICE_PAGES = [
     ],
     detailText:
       "Website development is scoped separately from IT support. Choose a starter site, business site, or custom build when you need a professional web presence for the DMV market.",
+    faqs: [
+      {
+        question: "Do you build websites for small businesses in the DMV area?",
+        answer:
+          "Yes. Blackburn Works builds small business websites for Washington, DC, Maryland, and Northern Virginia clients who need a polished online presence.",
+      },
+      {
+        question: "Can the website include the portfolio and service pages?",
+        answer:
+          "Yes. Website projects can include service pages, portfolio sections, contact forms, basic SEO setup, and mobile responsive layouts.",
+      },
+      {
+        question: "How is website development priced?",
+        answer:
+          "Website work is scoped as a package or custom build, with starter website packages beginning at $750.",
+      },
+    ],
   },
   {
     slug: "it-services",
@@ -136,6 +153,23 @@ const SERVICE_PAGES = [
     ],
     detailText:
       "IT services are hourly and focused on clear, affordable support for homes, home offices, and small businesses across the DMV area.",
+    faqs: [
+      {
+        question: "Do you offer onsite IT support near Washington, DC?",
+        answer:
+          "Yes. Onsite service is available within a 50-mile radius of Washington, DC, and remote support is available for many troubleshooting needs.",
+      },
+      {
+        question: "What does IT support cost?",
+        answer:
+          "IT services start at $50/hour. The scope depends on the device, issue, location, and whether support can be handled remotely.",
+      },
+      {
+        question: "Can you help with data transfer or encrypted drive access?",
+        answer:
+          "Yes. Blackburn Works can help with data transfer, migration, encrypted drive access assistance, and data recovery support when practical.",
+      },
+    ],
   },
   {
     slug: "powershell-automation",
@@ -170,6 +204,23 @@ const SERVICE_PAGES = [
     ],
     detailText:
       "Automation is scoped around the workflow or tool you need. It is a separate service from website development and hourly IT support.",
+    faqs: [
+      {
+        question: "What can PowerShell automation help with?",
+        answer:
+          "PowerShell automation can support workstation setup, system checks, reporting, repeatable admin tasks, and internal IT workflow improvements.",
+      },
+      {
+        question: "Is automation separate from IT support?",
+        answer:
+          "Yes. Automation is scoped as a workflow or tool build, while IT support is hourly troubleshooting or setup help.",
+      },
+      {
+        question: "Do you document the scripts?",
+        answer:
+          "Yes. Automation work includes practical usage notes so the tool is easier to understand, run, and maintain.",
+      },
+    ],
   },
 ];
 
@@ -185,7 +236,10 @@ const DEFAULT_META = {
   title: "Black-Owned Veteran-Owned Web & IT Services in the DMV | Blackburn Works LLC",
   description:
     "Black-owned and veteran-owned Blackburn Works LLC provides website development, PowerShell automation, and affordable IT services for Washington, DC, Maryland, and Northern Virginia.",
+  path: "/",
 };
+
+const SITE_URL = (import.meta.env.VITE_SITE_URL || "https://blackburnworks.com").replace(/\/$/, "");
 
 const WEB_APP_WORK_ITEMS = WORK_ITEMS.filter(
   (item) =>
@@ -200,15 +254,91 @@ const setMetaContent = (selector, content) => {
   }
 };
 
-function usePageMeta({ title, description }) {
+const ensureCanonicalLink = () => {
+  let link = document.querySelector('link[rel="canonical"]');
+  if (!link) {
+    link = document.createElement("link");
+    link.setAttribute("rel", "canonical");
+    document.head.appendChild(link);
+  }
+  return link;
+};
+
+const getCanonicalUrl = (path = "/") =>
+  `${SITE_URL}${path === "/" ? "/" : path.replace(/\/$/, "")}`;
+
+const setJsonLd = (id, data) => {
+  const existing = document.getElementById(id);
+  if (!data) {
+    existing?.remove();
+    return;
+  }
+
+  const script = existing || document.createElement("script");
+  script.id = id;
+  script.type = "application/ld+json";
+  script.textContent = JSON.stringify(data);
+  if (!existing) {
+    document.head.appendChild(script);
+  }
+};
+
+const getServiceSchema = (service) => ({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": `${getCanonicalUrl(`/services/${service.slug}`)}#service`,
+      name: service.shortTitle,
+      description: service.metaDescription,
+      provider: {
+        "@type": "LocalBusiness",
+        name: "Blackburn Works LLC",
+        url: SITE_URL,
+        description:
+          "Black-owned and veteran-owned technology business serving the DMV area.",
+      },
+      areaServed: DMV_SERVICE_AREAS.map((area) => ({
+        "@type": "Place",
+        name: area,
+      })),
+      offers: {
+        "@type": "Offer",
+        priceSpecification: {
+          "@type": "PriceSpecification",
+          priceCurrency: "USD",
+          description: service.price,
+        },
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${getCanonicalUrl(`/services/${service.slug}`)}#faq`,
+      mainEntity: service.faqs.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+});
+
+function usePageMeta({ title, description, path = "/", schema = null }) {
   useEffect(() => {
+    const canonicalUrl = getCanonicalUrl(path);
     document.title = title;
+    ensureCanonicalLink().setAttribute("href", canonicalUrl);
     setMetaContent('meta[name="description"]', description);
     setMetaContent('meta[property="og:title"]', title);
     setMetaContent('meta[property="og:description"]', description);
+    setMetaContent('meta[property="og:url"]', canonicalUrl);
     setMetaContent('meta[name="twitter:title"]', title);
     setMetaContent('meta[name="twitter:description"]', description);
-  }, [title, description]);
+    setJsonLd("bw-page-schema", schema);
+  }, [title, description, path, schema]);
 }
 
 export default function App() {
@@ -229,6 +359,7 @@ export default function App() {
           element={<WorkPage item={item} />}
         />
       ))}
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }
@@ -502,39 +633,38 @@ function HomePage() {
           <div className="container bw-shell">
             <div className="bw-trustGrid">
               <div className="bw-trustIntro">
-                <div className="bw-sectionLabel">Why Blackburn Works</div>
+                <div className="bw-sectionLabel">Local Trust</div>
                 <h2 className="bw-sectionTitle">
-                  More than just a link page. 
-                  A real web presence built to convert.
+                  Black-owned, veteran-owned, and built around practical support.
                 </h2>
                 <p className="bw-sectionText">
-                  No unnecessary complexity. Just a premium web presence built
-                  with clear direction, smart decisions, and a finished product
-                  that makes your business look credible from the first
-                  impression.
+                  Blackburn Works supports homes, home offices, and small
+                  businesses across the DMV area with clear service paths,
+                  realistic pricing, and technical help explained in plain
+                  language.
                 </p>
               </div>
 
               <div className="bw-trustCards">
                 <TrustCard
-                  title="Plan before building"
-                  text="We clarify the pages, content, and priorities first so the build has a real direction."
+                  title="DMV-area service"
+                  text="Remote support is available, with onsite IT service within a 50-mile radius of Washington, DC."
                 />
                 <TrustCard
-                  title="Launch-ready execution"
-                  text="Your site is built responsive, reviewed carefully, and prepared for a clean handoff."
+                  title="Clear scope before work"
+                  text="Website development, IT services, and automation are discussed as separate services so expectations stay clear."
                 />
                 <TrustCard
-                  title="Clean updates after launch"
-                  text="Your pages, calls to action, and service sections are organized so new content, edits, and integrations can be added without rebuilding from scratch."
+                  title="Practical pricing"
+                  text="IT support starts at $50/hour, while website and automation work are scoped around the size of the request."
                 />
               </div>
             </div>
 
             <div className="bw-processStrip">
-              <ProcessStep number="01" title="Share the goal" text="Send the essentials: what you need, who it is for, and what success should look like." />
-              <ProcessStep number="02" title="Confirm the scope" text="You get a clear direction, package fit, timeline, and next-step recommendation." />
-              <ProcessStep number="03" title="Launch with polish" text="The build moves through design, development, review, and deployment with launch readiness in mind." />
+              <ProcessStep number="01" title="Share the need" text="Send the essentials: the service you need, where you are located, and what outcome matters most." />
+              <ProcessStep number="02" title="Confirm the fit" text="You get a clear recommendation for website work, hourly IT support, PowerShell automation, or a practical next step." />
+              <ProcessStep number="03" title="Move with clarity" text="The work stays focused on useful outcomes, plain-language communication, and a clean handoff." />
             </div>
           </div>
         </section>
@@ -699,6 +829,8 @@ function ServicePage({ service }) {
   usePageMeta({
     title: service.metaTitle,
     description: service.metaDescription,
+    path: `/services/${service.slug}`,
+    schema: getServiceSchema(service),
   });
 
   useEffect(() => {
@@ -906,6 +1038,8 @@ function ServicePage({ service }) {
               </div>
             ) : null}
 
+            <FAQSection faqs={service.faqs} />
+
             <div className="bw-localServiceArea bw-servicePageSection">
               <span>DMV service area</span>
               <p>
@@ -948,10 +1082,68 @@ function ServicePage({ service }) {
   );
 }
 
+function NotFoundPage() {
+  usePageMeta({
+    title: "Page Not Found | Blackburn Works LLC",
+    description:
+      "The requested Blackburn Works page could not be found. Explore website development, IT services, and PowerShell automation for the DMV area.",
+    path: "/404",
+  });
+
+  return (
+    <div className="bw-site">
+      <header className="bw-header sticky-top">
+        <div className="container bw-shell">
+          <div className="bw-headerInner">
+            <Link to="/" className="bw-brandWrap bw-brandLink">
+              <img src={BWIcon} alt="Blackburn Works" className="bw-brandIcon" />
+              <span className="bw-brandText">Blackburn Works LLC</span>
+            </Link>
+
+            <div className="bw-detailActions">
+              <Link to="/" className="bw-btn bw-btnSecondary text-decoration-none">
+                Back Home
+              </Link>
+              <Link to="/#services" className="bw-btn bw-btnPrimary text-decoration-none">
+                View Services
+              </Link>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section className="bw-section bw-detailHero">
+          <div className="container bw-shell">
+            <div className="bw-kicker">404</div>
+            <h1 className="bw-display bw-detailTitle">This page is not available.</h1>
+            <p className="bw-lead">
+              The page may have moved, but Blackburn Works can still help with
+              website development, affordable DMV IT services, and practical
+              PowerShell automation.
+            </p>
+            <div className="bw-heroActions">
+              <Link to="/#services" className="bw-btn bw-btnPrimary text-decoration-none">
+                Explore Services
+              </Link>
+              <Link to="/#contact" className="bw-btn bw-btnSecondary text-decoration-none">
+                Contact Blackburn Works
+              </Link>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <ServiceFooter />
+    </div>
+  );
+}
+
 function WorkPage({ item }) {
   usePageMeta({
     title: `${item.title} | Blackburn Works LLC`,
     description: item.shortDesc || item.desc,
+    path: `/work/${item.slug}`,
   });
 
   return (
@@ -1156,6 +1348,26 @@ function ServiceDetailList({ title, items }) {
   );
 }
 
+function FAQSection({ faqs }) {
+  return (
+    <div className="bw-servicePageSection">
+      <div className="bw-subsectionIntro">
+        <div className="bw-sectionLabel">FAQ</div>
+        <h2 className="bw-subsectionTitle">Common questions</h2>
+      </div>
+
+      <div className="bw-faqGrid">
+        {faqs.map((item) => (
+          <div key={item.question} className="bw-detailCard">
+            <h3>{item.question}</h3>
+            <p>{item.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function TrustCard({ title, text }) {
   return (
     <div className="bw-trustCard">
@@ -1353,6 +1565,41 @@ function ContactForm() {
         />
       </div>
 
+      <div className="col-md-6">
+        <select
+          name="service_type"
+          className="form-select bw-input"
+          defaultValue=""
+          aria-label="Service type"
+          required
+        >
+          <option value="" disabled>
+            Service type
+          </option>
+          <option value="Website Development">Website Development</option>
+          <option value="IT Services">IT Services</option>
+          <option value="PowerShell Automation">PowerShell Automation</option>
+          <option value="Not Sure">Not Sure Yet</option>
+        </select>
+      </div>
+
+      <div className="col-md-6">
+        <select
+          name="support_preference"
+          className="form-select bw-input"
+          defaultValue=""
+          aria-label="Support preference"
+        >
+          <option value="" disabled>
+            Remote, onsite, or not sure?
+          </option>
+          <option value="Remote support">Remote support</option>
+          <option value="Onsite support">Onsite support</option>
+          <option value="Not sure">Not sure</option>
+          <option value="Not applicable">Not applicable</option>
+        </select>
+      </div>
+
       <div className="col-12">
         <input
           name="subject"
@@ -1373,6 +1620,7 @@ function ContactForm() {
 
       <div className="col-12">
         <input type="text" name="_gotcha" style={{ display: "none" }} />
+        <input type="hidden" name="_subject" value="New Blackburn Works inquiry" />
         <button className="bw-btn bw-btnPrimary" type="submit" disabled={loading}>
           {loading ? "Sending..." : "Send Request"}
         </button>
