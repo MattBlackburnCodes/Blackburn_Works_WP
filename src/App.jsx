@@ -233,9 +233,9 @@ const scrollToId = (id) => {
 };
 
 const DEFAULT_META = {
-  title: "Black-Owned Veteran-Owned Web & IT Services in the DMV | Blackburn Works LLC",
+  title: "Blackburn Works LLC | Websites, IT Services & Automation",
   description:
-    "Black-owned and veteran-owned Blackburn Works LLC provides website development, PowerShell automation, and affordable IT services for Washington, DC, Maryland, and Northern Virginia.",
+    "Black-owned and veteran-owned Blackburn Works LLC provides website development, affordable IT support, computer repair, and PowerShell automation across the DMV area.",
   path: "/",
 };
 
