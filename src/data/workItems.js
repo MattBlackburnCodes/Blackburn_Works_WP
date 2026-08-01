@@ -1,5 +1,5 @@
-import nuggetImg from "../assets/DailyNuggetOptimized.png"
-import coachesLoungeImg from "../assets/CoachesLoungeOptimized.png"
+import nuggetImg from "../assets/daily-nugget-logo.png"
+import jasmineWareImg from "../assets/jasmine-ware-empty-flesh.jpg"
 import automationToolsImg from "../assets/AutomationTools.svg"
 import barrigasAndFriendsImg from "../assets/barrigas-profile.jpg"
 
@@ -10,11 +10,15 @@ export const WORK_ITEMS = [
     shortTitle: "The Daily Nugget",
     title: "The Daily Nugget",
     desc: "Daily motivation app with dynamic content delivery.",
-    tags: ["React", "Mobile", "Web", "API",],
+    tags: ["Product Design", "Mobile", "Web", "API"],
+    platforms: ["Apple App Store", "Google Play", "Web App"],
+    appStoreUrl: "https://apps.apple.com/us/app/the-daily-nugget/id6745912191",
+    webUrl: "https://thedailynugget.app",
     keyFeatures: [
       "Daily dynamic quotes and affirmations",
       "Category-based content discovery",
-      "Fast, mobile-first user experience",
+      "Native availability on iOS and Android",
+      "Full browser experience at thedailynugget.app",
       "Optimized API-driven performance",
       "Seamless social sharing",
       "Daily reminders and notifications",
@@ -22,40 +26,42 @@ export const WORK_ITEMS = [
       "Personalized content preferences"
     ],
     shortDesc:
-      "A content-first mobile experience built to deliver uplifting quotes, affirmations, and daily motivation through a clean and modern interface.",
+      "A cross-platform motivation product available on the Apple App Store, Google Play, and the web at thedailynugget.app.",
     impactDesc:
-      "Gives users a fast daily habit loop with room for personalization, reminders, and long-term content growth.",
+      "Gives users one recognizable daily habit across iOS, Android, and the web, with room for personalization, reminders, games, and community content.",
     outcome:
-      "A scalable, production-ready mobile app focused on performance, user engagement, and long-term growth. Built to support real-world use cases including retention, personalization, and future monetization.",
-    summary:"The Daily Nugget was created as a content-first mobile experience focused on delivering consistent, meaningful motivation through quotes and affirmations. The goal was to build something simple, fast, and engaging—allowing users to easily discover and return to content that resonates with them. It was designed with scalability in mind, supporting future features like personalization, notifications, and expanded content categories.",
+      "A production-ready product spanning the Apple App Store, Google Play, and a responsive web application, all built around one recognizable mascot-led brand.",
+    summary:"The Daily Nugget is a mascot-led motivation platform delivering quotes, facts, affirmations, jokes, games, and community content through a fast daily habit. Blackburn Works shaped the product across iOS, Android, and the web so users can find the same recognizable experience wherever they prefer to use it.",
     liveUrl: "https://thedailynugget.app",
   },
   {
-    slug: "coaches-lounge",
-    image: coachesLoungeImg,
-    shortTitle: "Coaches Lounge",
-    title: "Coaches Lounge",
-    desc: "Recruiting platform connecting athletes and coaches.",
-    tags: ["React", "UI/UX", "MVP"],
+    slug: "jasmine-ware",
+    image: jasmineWareImg,
+    imageFit: "cover",
+    imagePosition: "center 32%",
+    shortTitle: "Jasmine Ware",
+    title: "Jasmine Ware — Artist Portfolio",
+    desc: "An immersive digital home for a Washington, DC visual storyteller.",
+    tags: ["Digital Presence", "Art Direction", "Web"],
     keyFeatures: [
-      "Dynamic athlete and coach profile system",
-      "Advanced player discovery and recruiting tools",
-      "Role-based platform for athletes and coaches",
-      "Integrated highlight videos and media showcases",
-      "Real-time messaging and connection building",
-      "Team and roster management capabilities",
-      "Searchable player metrics and attributes",
-      "Scalable, mobile-first application architecture"
+      "Immersive artist-led visual direction",
+      "Editorial portfolio and collection system",
+      "Artwork filtering by theme",
+      "Artist story and studio narrative",
+      "Commission inquiry experience",
+      "Exhibition and venue promotion",
+      "Responsive gallery presentation",
+      "Custom interactions built around the artwork"
     ],
     shortDesc:
-      "Delivered as a functional MVP with a strong foundation for scaling into a full recruiting ecosystem, enabling user growth, expanded features, and future monetization opportunities.",
+      "A cinematic portfolio that turns Jasmine Ware’s artwork, voice, and studio practice into one cohesive digital presence.",
     impactDesc:
-      "Turns a fragmented recruiting workflow into a focused MVP for discovery, profiles, and future platform growth.",
+      "Gives Jasmine’s work a distinctive online home designed for discovery, exhibitions, and commission inquiries.",
     outcome:
-      "Structured as an MVP with a scalable foundation for future growth, premium features, and expanded user roles.",
+      "Delivered an expressive, mobile-ready portfolio that feels like an extension of the artist rather than a generic gallery template.",
     summary:
-      "Coaches Lounge was built as a modern solution to the fragmented recruiting process in sports. The platform brings athletes, coaches, and families into a single ecosystem where talent can be showcased, discovered, and evaluated more efficiently. Designed as a scalable MVP, the focus was on creating meaningful connections, simplifying recruitment workflows, and laying the groundwork for future features such as advanced search, media integration, and expanded user roles.",
-    liveUrl: "https://coacheslounge.co",
+      "Jasmine Ware’s portfolio was designed as an evolving archive of feeling. The experience pairs bold editorial typography with an artwork-first collection, personal storytelling, studio process, exhibition details, and a direct path to commission inquiries.",
+    liveUrl: "https://jp-ware.vercel.app/",
   },
   {
     slug: "barrigas-and-friends",

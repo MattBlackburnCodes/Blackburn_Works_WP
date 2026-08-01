@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
-import BWIcon from "./assets/BWIconTranspOptimized.png";
-import BWLogo from "./assets/BWLogoTransPOptimized.png";
+import NewBWLogo from "./assets/blackburn-works-2026.png";
+import BWMark from "./assets/blackburn-works-mark.png";
 import { ADD_ONS } from "./data/addOns";
 import { WORK_ITEMS } from "./data/workItems";
 import { WEBSITE_TIERS } from "./data/websiteTiers";
@@ -12,8 +12,11 @@ import {
   Globe,
   LayoutGrid,
   LifeBuoy,
+  Mail,
   Menu,
   Palette,
+  Phone,
+  Quote,
   Terminal,
   X,
 } from "lucide-react";
@@ -21,6 +24,7 @@ import {
 const NAV = [
   { id: "hero", label: "Home" },
   { id: "about", label: "About" },
+  { id: "work", label: "Work" },
   { id: "services", label: "Services" },
   { id: "contact", label: "Contact" },
 ];
@@ -72,23 +76,23 @@ const SERVICE_PAGES = [
   {
     slug: "website-development",
     icon: "website",
-    kicker: "Website Development",
-    shortTitle: "Website Development",
-    title: "Website development for small businesses in the DMV area.",
-    metaTitle: "Website Development in the DMV Area | Blackburn Works LLC",
+    kicker: "Digital Presence Design",
+    shortTitle: "Digital Presence Design",
+    title: "Digital presence design for businesses ready to show up clearly.",
+    metaTitle: "Digital Presence Design in the DMV | Blackburn Works LLC",
     metaDescription:
-      "Black-owned and veteran-owned Blackburn Works LLC builds modern small business websites for Washington, DC, Maryland, and Northern Virginia.",
+      "Blackburn Works creates brand-forward websites and complete digital presences for businesses across Washington, DC, Maryland, and Northern Virginia.",
     homepageSummary:
-      "Professional websites for small businesses, personal brands, and service providers that need a clean online presence and clear next steps.",
+      "Brand-forward websites, messaging structure, and visual direction for businesses that need a clear and credible online presence.",
     lead:
-      "Blackburn Works designs and builds modern websites for businesses that need to look credible, explain their services clearly, and turn visitors into real conversations.",
+      "Blackburn Works designs how your business shows up online—from visual direction and messaging structure to the responsive website that brings it together.",
     price: "Website packages from $750",
     timeline: "7-30 days depending on scope",
-    tags: ["Small business websites", "Responsive design", "Basic SEO", "DMV area"],
+    tags: ["Digital presence", "Visual direction", "Responsive design", "DMV area"],
     highlights: [
-      "Starter, business, and custom website packages",
+      "Digital presence and custom website packages",
       "Mobile responsive layouts built for real users",
-      "Clear service sections, calls to action, and contact flow",
+      "Clear messaging, calls to action, and visual consistency",
     ],
     benefits: [
       "Clarify your offer so visitors understand what you do quickly",
@@ -233,9 +237,9 @@ const scrollToId = (id) => {
 };
 
 const DEFAULT_META = {
-  title: "Blackburn Works LLC | Websites, IT Services & Automation",
+  title: "Blackburn Works LLC | Digital Presence Design, IT & Automation",
   description:
-    "Black-owned and veteran-owned Blackburn Works LLC provides website development, affordable IT support, computer repair, and PowerShell automation across the DMV area.",
+    "Blackburn Works designs complete digital presences and provides practical IT support and PowerShell automation across the DMV area.",
   path: "/",
 };
 
@@ -393,8 +397,7 @@ function HomePage() {
               type="button"
               onClick={() => handleNavClick("hero")}
             >
-              <img src={BWIcon} alt="Blackburn Works" className="bw-brandIcon" />
-              <span className="bw-brandText">Blackburn Works LLC</span>
+              <img src={BWMark} alt="Blackburn Works" className="bw-brandMark" />
             </button>
 
             <button
@@ -429,7 +432,7 @@ function HomePage() {
               type="button"
               onClick={() => handleNavClick("contact")}
             >
-              Start Your Project
+              Get in touch
             </button>
           </div>
         </div>
@@ -440,15 +443,15 @@ function HomePage() {
           <div className="container bw-shell">
             <div className="row align-items-center gy-5">
               <div className="col-lg-6">
-                <div className="bw-kicker">Blackburn Works LLC</div>
+                <div className="bw-kicker">Digital presence designer · DMV</div>
                 <h1 className="bw-display">
-                  Website development, PowerShell automation, and <span className="bw-accent">affordable IT services for the DMV area.</span>
+                  Designing your digital presence. <span className="bw-accent">Solving what powers it.</span>
                 </h1>
                 <p className="bw-lead">
-                  Serving Washington, DC, Maryland, and Northern Virginia with
-                  distinct service paths: website development for your online
-                  presence, IT services for computer support, and automation for
-                  repeatable business workflows.
+                  Blackburn Works shapes how businesses show up online—from
+                  brand-forward websites to the systems behind the work. We also
+                  solve stubborn IT problems and automate repetitive workflows.
+                  Based in the DMV. Clear scope, direct support.
                 </p>
                 <div className="bw-identityRow" aria-label="Business ownership and service area">
                   {OWNERSHIP_POINTS.map((point) => (
@@ -461,33 +464,30 @@ function HomePage() {
                     type="button"
                     onClick={() => scrollToId("contact")}
                   >
-                    Start Your Project
+                    Tell us what you need
+                  </button>
+                  <button
+                    className="bw-btn bw-btnSecondary"
+                    type="button"
+                    onClick={() => scrollToId("services")}
+                  >
+                    Explore services
                   </button>
                 </div>
                 <div className="bw-statsGrid">
-                  <StatCard value="Website Development" label="Starter, business, and custom builds" />
-                  <StatCard value="$50/hr IT Support" label="Remote and onsite DMV help" />
-                  <StatCard value="PowerShell Automation" label="Workflow tools and scripts" />
+                  <StatCard value="01" label="Websites that earn attention" />
+                  <StatCard value="02" label="IT help without the runaround" />
+                  <StatCard value="03" label="Automation that saves real time" />
                 </div>
               </div>
 
               <div className="col-lg-6">
                 <div className="bw-heroVisual">
                   <div className="bw-heroVisualPanel">
-                    <img src={BWLogo} alt="Blackburn Works logo" className="bw-heroLogo" />
-                    <div className="bw-orbit bw-orbitOne" />
-                    <div className="bw-orbit bw-orbitTwo" />
-                    <div className="bw-heroCard bw-icon-node bw-heroCardOne">
-                      <Code size={20} color="#d4af37"/>
-                    </div>
-                    <div className="bw-heroCard bw-icon-node bw-heroCardTwo">
-                      <Palette size={20} color="#d4af37"/>
-                    </div>
-                    <div className="bw-heroCard bw-icon-node bw-heroCardThree">
-                      <Terminal size={20} color="#d4af37"/>
-                    </div>
-                    <div className="bw-heroCard bw-icon-node bw-heroCardFour">
-                      <LayoutGrid size={20} color="#d4af37"/>
+                    <img src={NewBWLogo} alt="Blackburn Works — building digital presence, solving problems, creating impact" className="bw-heroLogo" />
+                    <div className="bw-heroCaption">
+                      <span>Washington, DC</span>
+                      <span>Web · IT · Automation</span>
                     </div>
                   </div>
                 </div>
@@ -502,15 +502,15 @@ function HomePage() {
           <div className="container bw-shell">
             <div className="row align-items-start gy-5">
               <div className="col-lg-5">
-                <div className="bw-sectionLabel">How Blackburn Works Builds</div>
+                <div className="bw-sectionLabel">The Blackburn approach</div>
                 <h2 className="bw-sectionTitle">
-                  Built with clarity, speed, and a product-first mindset.
+                  A stronger presence, built on useful technology.
                 </h2>
                 <p className="bw-sectionText">
                   Blackburn Works is a Black-owned and veteran-owned technology
-                  business creating modern websites, practical IT support, and
-                  PowerShell tools for homes, home offices, and small businesses
-                  across the DMV area.
+                  studio helping small businesses look established, communicate
+                  clearly, and work more efficiently. Digital presence design,
+                  practical IT support, and PowerShell tools all live under one roof.
                 </p>
 
                 <button
@@ -518,7 +518,7 @@ function HomePage() {
                   type="button"
                   onClick={() => scrollToId("contact")}
                 >
-                  Start Your Project
+                  Start a conversation
                 </button>
               </div>
 
@@ -561,10 +561,10 @@ function HomePage() {
                     <div className="bw-aboutFeatureIcon">
                       <LayoutGrid size={20} />
                     </div>
-                    <h3>Easy to Update</h3>
+                    <h3>Owner-led from Start to Finish</h3>
                     <p>
-                      Service sections, calls to action, and pages organized so
-                      future edits are easier to make.
+                      You work directly with the person planning, building, and
+                      supporting the finished solution.
                     </p>
                   </div>
                 </div>
@@ -573,18 +573,34 @@ function HomePage() {
           </div>
         </section>
 
-        <section id="services" className="bw-section bw-sectionAlt">
+        <section id="work" className="bw-section bw-sectionAlt">
           <div className="container bw-shell">
             <SectionHeader
-              title="Services"
-              text="Blackburn Works is a Black-owned and veteran-owned technology business serving the DMV area with three clear service paths: website development, IT services, and PowerShell automation."
+              title="Selected work."
+              text="Distinct digital experiences shaped around the people, products, and stories they represent."
             />
 
-            <div className="bw-ownershipStrip">
-              {OWNERSHIP_POINTS.map((point) => (
-                <span key={point}>{point}</span>
+            <div className="row g-4">
+              {WEB_APP_WORK_ITEMS.map((item) => (
+                <ProjectCard key={item.slug} item={item} />
               ))}
             </div>
+
+            <div className="bw-workProof" aria-label="Blackburn Works project approach">
+              <span>React + Vite</span>
+              <span>PowerShell</span>
+              <span>Vercel deployment</span>
+              <span>Direct client support</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="services" className="bw-section">
+          <div className="container bw-shell">
+            <SectionHeader
+              title="Three ways we can help."
+              text="Choose a focused engagement or bring us a problem that crosses disciplines. We will define the right path before the work begins."
+            />
 
             <div className="bw-serviceOverviewGrid">
               {SERVICE_PAGES.map((service) => (
@@ -595,16 +611,9 @@ function HomePage() {
             <div className="bw-localServiceArea bw-serviceAreaCompact">
               <span>Local service area</span>
               <p>
-                Remote support is available, and onsite IT service is available
-                within a 50-mile radius of Washington, DC.
+                Serving Washington, DC, Maryland, and Northern Virginia—with
+                remote support available beyond the DMV.
               </p>
-              <div className="bw-tagRow">
-                {DMV_SERVICE_AREAS.map((area) => (
-                  <span key={area} className="bw-tag">
-                    {area}
-                  </span>
-                ))}
-              </div>
             </div>
 
             <div className="bw-servicesCta bw-servicesCtaWide">
@@ -612,7 +621,7 @@ function HomePage() {
                 <h3>Not sure which service fits?</h3>
                 <p>
                   Send the basics and Blackburn Works will help route the
-                  request clearly: website build, hourly IT support, automation,
+                  request clearly: digital presence design, hourly IT support, automation,
                   or a combination that makes sense.
                 </p>
               </div>
@@ -622,42 +631,45 @@ function HomePage() {
                   type="button"
                   onClick={() => scrollToId("contact")}
                 >
-                  Start Your Project
+                  Send your project
                 </button>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="bw-section bw-trustSection">
+        <section id="testimonials" className="bw-section bw-sectionAlt bw-trustSection">
           <div className="container bw-shell">
             <div className="bw-trustGrid">
               <div className="bw-trustIntro">
-                <div className="bw-sectionLabel">Local Trust</div>
+                <div className="bw-sectionLabel">Client words</div>
                 <h2 className="bw-sectionTitle">
-                  Black-owned, veteran-owned, and built around practical support.
+                  Good work gets remembered.
                 </h2>
                 <p className="bw-sectionText">
-                  Blackburn Works supports homes, home offices, and small
-                  businesses across the DMV area with clear service paths,
-                  realistic pricing, and technical help explained in plain
-                  language.
+                  Founder-led, Black-owned, and veteran-owned. Every engagement
+                  gets direct communication, a clear scope, and work built around
+                  the person who will actually use it.
                 </p>
               </div>
 
-              <div className="bw-trustCards">
-                <TrustCard
-                  title="DMV-area service"
-                  text="Remote support is available, with onsite IT service within a 50-mile radius of Washington, DC."
-                />
-                <TrustCard
-                  title="Clear scope before work"
-                  text="Website development, IT services, and automation are discussed as separate services so expectations stay clear."
-                />
-                <TrustCard
-                  title="Practical pricing"
-                  text="IT support starts at $50/hour, while website and automation work are scoped around the size of the request."
-                />
+              <div className="bw-testimonialGrid">
+                <blockquote className="bw-testimonialCard">
+                  <Quote size={24} aria-hidden="true" />
+                  <p>“OMG you did that! I love it! I showed my mama and she said thank you so much and that you have some talent!”</p>
+                  <footer>
+                    <strong>Jasmine Ware</strong>
+                    <span>Artist portfolio client</span>
+                  </footer>
+                </blockquote>
+                <blockquote className="bw-testimonialCard">
+                  <Quote size={24} aria-hidden="true" />
+                  <p>“You are my go to guy for any of my IT needs! Thank you for everything you do!”</p>
+                  <footer>
+                    <strong>Dave Churchill</strong>
+                    <span>IT support client</span>
+                  </footer>
+                </blockquote>
               </div>
             </div>
 
@@ -668,15 +680,6 @@ function HomePage() {
             </div>
           </div>
         </section>
-
-        {/* <section id="testimonials" className="bw-section bw-sectionAlt">
-          <div className="container bw-shell">
-            <SectionHeader
-              title="Testimonials"
-              text="Reserved for future client testimonials."
-            />
-          </div>
-        </section> */}
 
         {/* <section id="team" className="bw-section">
           <div className="container bw-shell">
@@ -700,7 +703,7 @@ function HomePage() {
           <div className="container bw-shell">
             <SectionHeader
               title="Contact"
-              text="Need website development, affordable IT services in the DMV area, or automation support? Send a few details and I'll follow up within 24 hours with clear next steps."
+              text="Need a stronger digital presence, practical IT support, or automation? Send a few details and I'll follow up within 24 hours with clear next steps."
             />
 
             <div className="row g-4 align-items-stretch">
@@ -714,7 +717,7 @@ function HomePage() {
                     <p>
                       No pressure and no long discovery process. Share the
                       basics and I&apos;ll help route the request clearly:
-                      website development, hourly IT support, or PowerShell
+                      digital presence design, hourly IT support, or PowerShell
                       automation.
                     </p>
                   </div>
@@ -734,11 +737,22 @@ function HomePage() {
                     </p>
                   </div>
 
+                  <div className="bw-directContact" aria-label="Direct contact options">
+                    <a href="mailto:contact@blackburn.works">
+                      <Mail size={19} aria-hidden="true" />
+                      <span><small>Email</small>contact@blackburn.works</span>
+                    </a>
+                    <a href="tel:+12026564550">
+                      <Phone size={19} aria-hidden="true" />
+                      <span><small>Call or text</small>(202) 656-4550</span>
+                    </a>
+                  </div>
+
                   <div className="bw-methodGrid">
                     <InfoCard
-                      title="Website Development"
-                      value="Package or custom build"
-                      note="Starter, business, and tailored websites"
+                      title="Digital Presence Design"
+                      value="Starting at $750"
+                      note="Visual direction, messaging, and tailored websites"
                       icon={<IconSpark />}
                     />
                     <InfoCard
@@ -764,7 +778,7 @@ function HomePage() {
                       <div className="bw-metaValue">Remote + Onsite</div>
                       <div className="bw-metaLabel">Flexible IT support options</div>
                     </div>
-                    <div className="bw-metaMap">Website development, hourly IT support, and PowerShell automation are scoped as separate services</div>
+                    <div className="bw-metaMap">Digital presence design, hourly IT support, and PowerShell automation are scoped clearly before work begins</div>
                   </div>
                 </div>
               </div>
@@ -778,13 +792,12 @@ function HomePage() {
           <div className="bw-footerGrid">
             <div>
               <div className="bw-footerBrand">
-                <img src={BWIcon} alt="Blackburn Works" className="bw-footerIcon" />
-                <span>Blackburn Works LLC</span>
+                <img src={BWMark} alt="Blackburn Works" className="bw-footerMark" />
               </div>
               <p className="bw-footerCopy">
                 Black-owned and veteran-owned. Modern websites, practical
-                PowerShell automation, and affordable DMV-area IT services for
-                homes, home offices, and small businesses.
+                digital presence design, PowerShell automation, and affordable
+                DMV-area IT services for small businesses and home offices.
               </p>
             </div>
 
@@ -807,7 +820,7 @@ function HomePage() {
             <div>
               <h4 className="bw-footerTitle">Blackburn Works</h4>
               <div className="bw-footerMeta">
-                <span>Website Development</span>
+                <span>Digital Presence Design</span>
                 <span>Black-owned Business</span>
                 <span>Veteran-owned Business</span>
                 <span>Affordable DMV IT Support</span>
@@ -852,8 +865,7 @@ function ServicePage({ service }) {
         <div className="container bw-shell">
           <div className="bw-headerInner">
             <Link to="/" className="bw-brandWrap bw-brandLink">
-              <img src={BWIcon} alt="Blackburn Works" className="bw-brandIcon" />
-              <span className="bw-brandText">Blackburn Works LLC</span>
+              <img src={BWMark} alt="Blackburn Works" className="bw-brandMark" />
             </Link>
 
             <div className="bw-detailActions">
@@ -1086,7 +1098,7 @@ function NotFoundPage() {
   usePageMeta({
     title: "Page Not Found | Blackburn Works LLC",
     description:
-      "The requested Blackburn Works page could not be found. Explore website development, IT services, and PowerShell automation for the DMV area.",
+      "The requested Blackburn Works page could not be found. Explore digital presence design, IT services, and PowerShell automation for the DMV area.",
     path: "/404",
   });
 
@@ -1096,8 +1108,7 @@ function NotFoundPage() {
         <div className="container bw-shell">
           <div className="bw-headerInner">
             <Link to="/" className="bw-brandWrap bw-brandLink">
-              <img src={BWIcon} alt="Blackburn Works" className="bw-brandIcon" />
-              <span className="bw-brandText">Blackburn Works LLC</span>
+              <img src={BWMark} alt="Blackburn Works" className="bw-brandMark" />
             </Link>
 
             <div className="bw-detailActions">
@@ -1119,7 +1130,7 @@ function NotFoundPage() {
             <h1 className="bw-display bw-detailTitle">This page is not available.</h1>
             <p className="bw-lead">
               The page may have moved, but Blackburn Works can still help with
-              website development, affordable DMV IT services, and practical
+              digital presence design, affordable DMV IT services, and practical
               PowerShell automation.
             </p>
             <div className="bw-heroActions">
@@ -1152,8 +1163,7 @@ function WorkPage({ item }) {
         <div className="container bw-shell">
           <div className="bw-headerInner">
             <Link to="/" className="bw-brandWrap bw-brandLink">
-              <img src={BWIcon} alt="Blackburn Works" className="bw-brandIcon" />
-              <span className="bw-brandText">Blackburn Works LLC</span>
+              <img src={BWMark} alt="Blackburn Works" className="bw-brandMark" />
             </Link>
 
             <div className="bw-detailActions">
@@ -1188,6 +1198,14 @@ function WorkPage({ item }) {
                     </span>
                   ))}
                 </div>
+                {item.platforms?.length ? (
+                  <div className="bw-platformRow" aria-label="Available platforms">
+                    <span>Available on</span>
+                    {item.platforms.map((platform) => (
+                      <strong key={platform}>{platform}</strong>
+                    ))}
+                  </div>
+                ) : null}
               </div>
 
               <div className="col-lg-5">
@@ -1196,6 +1214,16 @@ function WorkPage({ item }) {
                   <div className="bw-projectPreviewBody">
                     <h3>Project overview</h3>
                     <p>{item.shortDesc || item.summary}</p>
+                    {item.appStoreUrl || item.webUrl ? (
+                      <div className="bw-projectLinks">
+                        {item.appStoreUrl ? (
+                          <a href={item.appStoreUrl} target="_blank" rel="noreferrer">Apple App Store</a>
+                        ) : null}
+                        {item.webUrl ? (
+                          <a href={item.webUrl} target="_blank" rel="noreferrer">Open web app</a>
+                        ) : null}
+                      </div>
+                    ) : null}
                   </div>
                 </div>
               </div>
@@ -1256,8 +1284,7 @@ function ServiceFooter() {
         <div className="bw-footerGrid">
           <div>
             <div className="bw-footerBrand">
-              <img src={BWIcon} alt="Blackburn Works" className="bw-footerIcon" />
-              <span>Blackburn Works LLC</span>
+              <img src={BWMark} alt="Blackburn Works" className="bw-footerMark" />
             </div>
             <p className="bw-footerCopy">
               Black-owned and veteran-owned technology support for websites,
@@ -1368,20 +1395,6 @@ function FAQSection({ faqs }) {
   );
 }
 
-function TrustCard({ title, text }) {
-  return (
-    <div className="bw-trustCard">
-      <div className="bw-trustMark">
-        <Check size={18} />
-      </div>
-      <div>
-        <h3>{title}</h3>
-        <p>{text}</p>
-      </div>
-    </div>
-  );
-}
-
 function ProcessStep({ number, title, text }) {
   return (
     <div className="bw-processStep">
@@ -1461,6 +1474,13 @@ function ProjectCard({ item }) {
           </div>
           <h3>{item.title}</h3>
           <p>{item.impactDesc || item.shortDesc || item.desc}</p>
+          {item.platforms?.length ? (
+            <div className="bw-platformList" aria-label={`${item.title} availability`}>
+              {item.platforms.map((platform) => (
+                <span key={platform}>{platform}</span>
+              ))}
+            </div>
+          ) : null}
           <div className="bw-tagRow">
             {item.tags?.map((tag) => (
               <span key={tag} className="bw-tag">
@@ -1478,7 +1498,12 @@ function ProjectThumb({ item, detail = false }) {
   return (
     <div className={`bw-projectThumb${detail ? " bw-projectThumbDetail" : ""}`}>
       {item.image ? (
-        <img src={item.image} alt={item.title} className="bw-projectImage" />
+        <img
+          src={item.image}
+          alt={item.title}
+          className={`bw-projectImage${item.imageFit === "cover" ? " bw-projectImageCover" : ""}`}
+          style={item.imagePosition ? { objectPosition: item.imagePosition } : undefined}
+        />
       ) : (
         <div className="bw-projectPlaceholder">
           <span>{item.shortTitle || item.title}</span>
@@ -1576,7 +1601,7 @@ function ContactForm() {
           <option value="" disabled>
             Service type
           </option>
-          <option value="Website Development">Website Development</option>
+          <option value="Digital Presence Design">Digital Presence Design</option>
           <option value="IT Services">IT Services</option>
           <option value="PowerShell Automation">PowerShell Automation</option>
           <option value="Not Sure">Not Sure Yet</option>
@@ -1622,7 +1647,7 @@ function ContactForm() {
         <input type="text" name="_gotcha" style={{ display: "none" }} />
         <input type="hidden" name="_subject" value="New Blackburn Works inquiry" />
         <button className="bw-btn bw-btnPrimary" type="submit" disabled={loading}>
-          {loading ? "Sending..." : "Send Request"}
+          {loading ? "Sending..." : "Start the Conversation"}
         </button>
 
         {status && <p className="bw-responseNote">{status}</p>}
