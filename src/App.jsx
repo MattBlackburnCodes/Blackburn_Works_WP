@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import NewBWLogo from "./assets/blackburn-works-2026.png";
+import tripAwareIcon from "./assets/tripaware-compass.svg";
 import BWMark from "./assets/blackburn-works-mark.png";
 import { ADD_ONS } from "./data/addOns";
 import { WORK_ITEMS } from "./data/workItems";
 import { WEBSITE_TIERS } from "./data/websiteTiers";
 import {
   ArrowRight,
+  ArrowUpRight,
   Check,
   Code,
   Globe,
@@ -17,6 +19,7 @@ import {
   Palette,
   Phone,
   Quote,
+  Smartphone,
   Terminal,
   X,
 } from "lucide-react";
@@ -34,6 +37,8 @@ const WEBSITE_TIER_ICONS = {
   layoutGrid: <LayoutGrid size={20} />,
   code: <Code size={20} />,
 };
+
+const PROJECT_ICONS = { globe: Globe, mobile: Smartphone, palette: Palette, terminal: Terminal };
 
 const SERVICE_PAGE_ICONS = {
   website: <Globe size={20} />,
@@ -246,9 +251,7 @@ const DEFAULT_META = {
 const SITE_URL = (import.meta.env.VITE_SITE_URL || "https://blackburnworks.com").replace(/\/$/, "");
 
 const WEB_APP_WORK_ITEMS = WORK_ITEMS.filter(
-  (item) =>
-    !item.tags?.includes("PowerShell") &&
-    item.tags?.some((tag) => ["Web", "Mobile", "MVP", "UI/UX"].includes(tag)),
+  (item) => item.platforms.some((platform) => platform === "Web app" || platform === "Website"),
 );
 
 const setMetaContent = (selector, content) => {
@@ -1153,7 +1156,7 @@ function NotFoundPage() {
 function WorkPage({ item }) {
   usePageMeta({
     title: `${item.title} | Blackburn Works LLC`,
-    description: item.shortDesc || item.desc,
+    description: item.description,
     path: `/work/${item.slug}`,
   });
 
@@ -1170,14 +1173,6 @@ function WorkPage({ item }) {
               <Link to="/" className="bw-btn bw-btnSecondary text-decoration-none">
                 Back to Main Site
               </Link>
-              <a
-                href={item.liveUrl}
-                className="bw-btn bw-btnPrimary text-decoration-none"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Open Live Project
-              </a>
             </div>
           </div>
         </div>
@@ -1188,64 +1183,40 @@ function WorkPage({ item }) {
           <div className="container bw-shell">
             <div className="row align-items-center gy-5">
               <div className="col-lg-7">
-                <div className="bw-kicker">Selected Project</div>
-                <h1 className="bw-display bw-detailTitle">{item.title}</h1>
-                <p className="bw-lead">{item.desc}</p>
-                <div className="bw-tagRow">
-                  {item.tags?.map((tag) => (
-                    <span key={tag} className="bw-tag">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                {item.platforms?.length ? (
-                  <div className="bw-platformRow" aria-label="Available platforms">
-                    <span>Available on</span>
-                    {item.platforms.map((platform) => (
-                      <strong key={platform}>{platform}</strong>
+                <h1 className="bw-display bw-detailTitle">
+                  <ProjectTitle item={item} />
+                </h1>
+                <p className="bw-lead">{item.description}</p>
+                <ProjectPlatforms item={item} />
+                {item.links.length > 0 && (
+                  <div className="bw-projectLinks" aria-label="Project links">
+                    {item.links.map(({ label, url }) => (
+                      <a key={url} href={url} className="bw-projectFeatureLink" target="_blank" rel="noreferrer">
+                        {label}
+                        <ArrowUpRight size={14} aria-hidden="true" />
+                      </a>
                     ))}
                   </div>
-                ) : null}
+                )}
               </div>
 
               <div className="col-lg-5">
                 <div className="bw-projectPreview">
                   <ProjectThumb item={item} detail />
-                  <div className="bw-projectPreviewBody">
-                    <h3>Project overview</h3>
-                    <p>{item.shortDesc || item.summary}</p>
-                    {item.appStoreUrl || item.webUrl ? (
-                      <div className="bw-projectLinks">
-                        {item.appStoreUrl ? (
-                          <a href={item.appStoreUrl} target="_blank" rel="noreferrer">Apple App Store</a>
-                        ) : null}
-                        {item.webUrl ? (
-                          <a href={item.webUrl} target="_blank" rel="noreferrer">Open web app</a>
-                        ) : null}
-                      </div>
-                    ) : null}
-                  </div>
                 </div>
               </div>
             </div>
 
             <div className="row g-4 bw-detailGrid">
               <div className="col-lg-6">
-                <DetailCard title="What it is" text={item.summary} />
-              </div>
-              <div className="col-lg-6">
-                <DetailCard title="Impact" text={item.outcome} />
+                <DetailCard title="Project overview" text={item.overview} />
               </div>
               <div className="col-lg-6">
                 <div className="bw-detailCard">
                   <h3>Key features</h3>
-                  <div className="bw-tagRow">
-                    {item.keyFeatures?.map((feature) => (
-                      <span key={feature} className="bw-tag">
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
+                  <ul className="bw-projectFeatures">
+                    {item.keyFeatures.map((feature) => <li key={feature}>{feature}</li>)}
+                  </ul>
                 </div>
               </div>
               <div className="col-lg-6">
@@ -1468,39 +1439,47 @@ function ProjectCard({ item }) {
       <Link to={`/work/${item.slug}`} className="bw-projectCard text-decoration-none">
         <ProjectThumb item={item} />
         <div className="bw-projectBody">
-          <div className="bw-projectMeta">
-            <span>{item.tags?.[0] || "Project"}</span>
-            <span>{item.tags?.length || 0} focus areas</span>
-          </div>
-          <h3>{item.title}</h3>
-          <p>{item.impactDesc || item.shortDesc || item.desc}</p>
-          {item.platforms?.length ? (
-            <div className="bw-platformList" aria-label={`${item.title} availability`}>
-              {item.platforms.map((platform) => (
-                <span key={platform}>{platform}</span>
-              ))}
-            </div>
-          ) : null}
-          <div className="bw-tagRow">
-            {item.tags?.map((tag) => (
-              <span key={tag} className="bw-tag">
-                {tag}
-              </span>
-            ))}
-          </div>
+          <h3><ProjectTitle item={item} /></h3>
+          <p>{item.description}</p>
+          <ProjectPlatforms item={item} />
         </div>
       </Link>
     </div>
   );
 }
 
-function ProjectThumb({ item, detail = false }) {
+function ProjectTitle({ item }) {
+  const Icon = PROJECT_ICONS[item.icon];
+
   return (
-    <div className={`bw-projectThumb${detail ? " bw-projectThumbDetail" : ""}`}>
+    <span className="bw-projectTitleWithIcon">
+      {item.icon === "compass" ? (
+        <img src={tripAwareIcon} alt="" width="44" height="44" />
+      ) : (
+        <Icon aria-hidden="true" />
+      )}
+      {item.title}
+    </span>
+  );
+}
+
+function ProjectPlatforms({ item }) {
+  return (
+    <div className="bw-platformList" aria-label="Project platforms">
+      {item.platforms.map((platform) => <span key={platform}>{platform}</span>)}
+    </div>
+  );
+}
+
+function ProjectThumb({ item, detail = false }) {
+  const globeFrame = item.imageFrame === "globe";
+
+  return (
+    <div className={`bw-projectThumb${detail ? " bw-projectThumbDetail" : ""}${globeFrame ? " bw-projectThumbGlobe" : ""}`}>
       {item.image ? (
         <img
           src={item.image}
-          alt={item.title}
+          alt={item.imageAlt || item.title}
           className={`bw-projectImage${item.imageFit === "cover" ? " bw-projectImageCover" : ""}`}
           style={item.imagePosition ? { objectPosition: item.imagePosition } : undefined}
         />

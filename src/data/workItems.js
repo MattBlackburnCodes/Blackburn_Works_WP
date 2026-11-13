@@ -1,117 +1,98 @@
 import nuggetImg from "../assets/daily-nugget-logo.png"
+import tripAwareImg from "../assets/tripaware-map.png"
 import jasmineWareImg from "../assets/jasmine-ware-empty-flesh.jpg"
 import automationToolsImg from "../assets/AutomationTools.svg"
 import barrigasAndFriendsImg from "../assets/barrigas-profile.jpg"
 
+const tripAwareUrl = "https://trip-aware.vercel.app"
+const dailyNuggetUrl = "https://thedailynugget.app"
+
 export const WORK_ITEMS = [
   {
     slug: "the-daily-nugget",
-    image: nuggetImg,
-    shortTitle: "The Daily Nugget",
     title: "The Daily Nugget",
-    desc: "Daily motivation app with dynamic content delivery.",
-    tags: ["Product Design", "Mobile", "Web", "API"],
-    platforms: ["Apple App Store", "Google Play", "Web App"],
-    appStoreUrl: "https://apps.apple.com/us/app/the-daily-nugget/id6745912191",
-    webUrl: "https://thedailynugget.app",
+    image: nuggetImg,
+    icon: "mobile",
+    platforms: ["Web app", "iOS", "Android"],
+    description: "A daily motivation app with quotes, affirmations, and games for quick breaks.",
+    overview: "The Daily Nugget brings bite-sized content and games into a daily routine across mobile and web.",
     keyFeatures: [
-      "Daily dynamic quotes and affirmations",
-      "Category-based content discovery",
-      "Native availability on iOS and Android",
-      "Full browser experience at thedailynugget.app",
-      "Optimized API-driven performance",
-      "Seamless social sharing",
-      "Daily reminders and notifications",
-      "Save favorites and collections",
-      "Personalized content preferences"
+      "Daily quotes and affirmations",
+      "Reminders and notifications",
+      "Favorites and collections",
     ],
-    shortDesc:
-      "A cross-platform motivation product available on the Apple App Store, Google Play, and the web at thedailynugget.app.",
-    impactDesc:
-      "Gives users one recognizable daily habit across iOS, Android, and the web, with room for personalization, reminders, games, and community content.",
-    outcome:
-      "A production-ready product spanning the Apple App Store, Google Play, and a responsive web application, all built around one recognizable mascot-led brand.",
-    summary:"The Daily Nugget is a mascot-led motivation platform delivering quotes, facts, affirmations, jokes, games, and community content through a fast daily habit. Blackburn Works shaped the product across iOS, Android, and the web so users can find the same recognizable experience wherever they prefer to use it.",
-    liveUrl: "https://thedailynugget.app",
+    links: [
+      { label: "Open web app", url: dailyNuggetUrl },
+      { label: "View on the App Store", url: "https://apps.apple.com/us/app/the-daily-nugget/id6745912191" },
+    ],
+  },
+  {
+    slug: "trip-aware",
+    title: "TripAware",
+    image: tripAwareImg,
+    imageFrame: "globe",
+    imageAlt: "TripAware world map with destinations colored by advisory level",
+    icon: "compass",
+    platforms: ["Web app"],
+    description: "A travel advisory app with an interactive world map and searchable destination directory.",
+    overview: "Built by Blackburn Works, TripAware organizes U.S. Department of State travel advisories and records changes it observes over time.",
+    keyFeatures: [
+      "Color-coded advisory map",
+      "Destination pages with official sources",
+      "Advisory change history",
+    ],
+    links: [
+      { label: "Open web app", url: tripAwareUrl },
+      { label: "Explore the world map", url: `${tripAwareUrl}/map` },
+      { label: "Search destinations", url: `${tripAwareUrl}/destinations` },
+      { label: "See advisory changes", url: `${tripAwareUrl}/advisories` },
+    ],
   },
   {
     slug: "jasmine-ware",
+    title: "Jasmine Ware — Artist Portfolio",
     image: jasmineWareImg,
     imageFit: "cover",
     imagePosition: "center 32%",
-    shortTitle: "Jasmine Ware",
-    title: "Jasmine Ware — Artist Portfolio",
-    desc: "An immersive digital home for a Washington, DC visual storyteller.",
-    tags: ["Digital Presence", "Art Direction", "Web"],
+    icon: "palette",
+    platforms: ["Website"],
+    description: "An artist portfolio that brings Jasmine Ware’s artwork, exhibitions, and commission inquiries together.",
+    overview: "The site gives visitors a place to explore Jasmine Ware’s collections, learn about her studio practice, and get in touch about commissions.",
     keyFeatures: [
-      "Immersive artist-led visual direction",
-      "Editorial portfolio and collection system",
-      "Artwork filtering by theme",
-      "Artist story and studio narrative",
-      "Commission inquiry experience",
-      "Exhibition and venue promotion",
-      "Responsive gallery presentation",
-      "Custom interactions built around the artwork"
+      "Artwork galleries with theme filters",
+      "Artist story and exhibition details",
+      "Commission inquiry form",
     ],
-    shortDesc:
-      "A cinematic portfolio that turns Jasmine Ware’s artwork, voice, and studio practice into one cohesive digital presence.",
-    impactDesc:
-      "Gives Jasmine’s work a distinctive online home designed for discovery, exhibitions, and commission inquiries.",
-    outcome:
-      "Delivered an expressive, mobile-ready portfolio that feels like an extension of the artist rather than a generic gallery template.",
-    summary:
-      "Jasmine Ware’s portfolio was designed as an evolving archive of feeling. The experience pairs bold editorial typography with an artwork-first collection, personal storytelling, studio process, exhibition details, and a direct path to commission inquiries.",
-    liveUrl: "https://jp-ware.vercel.app/",
+    links: [{ label: "Visit website", url: "https://jp-ware.vercel.app/" }],
   },
   {
     slug: "barrigas-and-friends",
-    image: barrigasAndFriendsImg,
-    shortTitle: "Barrigas & Friends",
     title: "Barrigas & Friends",
-    desc: "Modern website for a growing brand focused on community and identity.",
-    tags: ["React", "UI/UX", "Web"],
+    image: barrigasAndFriendsImg,
+    icon: "globe",
+    platforms: ["Website"],
+    description: "A responsive brand website designed to introduce Barrigas & Friends and grow with its community.",
+    overview: "The site gives Barrigas & Friends a clear online home and a flexible foundation for adding content as the brand grows.",
     keyFeatures: [
-      "Clean, brand-focused landing experience",
-      "Responsive layout across all devices",
-      "Optimized performance and fast load times",
-      "Structured content for easy navigation",
-      "Scalable foundation for future features",
-      "Custom UI tailored to brand identity",
-      "Modern component-based architecture",
-      "Deployment-ready with Vercel integration"
+      "Custom landing page",
+      "Responsive layouts",
+      "Reusable site components",
     ],
-    shortDesc:
-      "A modern, responsive website designed to establish a strong online presence while remaining flexible for future growth and expansion.",
-    impactDesc:
-      "Strengthens brand credibility with a clean web presence that can expand without a full rebuild.",
-    outcome:
-      "Delivered a polished, production-ready website that strengthens brand visibility and provides a scalable foundation for future updates and features.",
-    summary:
-      "Barrigas & Friends was developed as a clean and modern web experience focused on building a strong digital presence. The goal was to create something visually appealing, easy to navigate, and adaptable as the brand evolves. Emphasis was placed on performance, responsive design, and a scalable structure—allowing the platform to grow over time without needing a complete rebuild.",
-    liveUrl: "https://baf-wp.vercel.app/",
+    links: [{ label: "Visit website", url: "https://baf-wp.vercel.app/" }],
   },
   {
     slug: "automation-tools",
-    image: automationToolsImg,
-    shortTitle: "PowerShell Automation",
     title: "PowerShell Automation Toolkit",
-    desc: "Custom PowerShell scripts that reduce repetitive IT work.",
-    tags: ["PowerShell", "IT Support", "Efficiency"],
+    image: automationToolsImg,
+    icon: "terminal",
+    platforms: ["PowerShell"],
+    description: "A PowerShell toolkit that standardizes repetitive IT tasks such as workstation setup and system checks.",
+    overview: "The toolkit turns common support tasks into reusable scripts, helping IT teams run them consistently across workstations.",
     keyFeatures: [
-      "Workstation setup automation",
+      "Workstation setup scripts",
       "System checks and reporting",
-      "Repeatable admin tasks",
-      "Workflow automation",
-      "Internal IT process improvements",
+      "Repeatable administration workflows",
     ],
-    shortDesc:
-      "A practical PowerShell toolkit designed to reduce manual work, standardize repeat tasks, and improve consistency.",
-    impactDesc:
-      "Helps teams save time on manual IT tasks while making common support processes easier to run and repeat.",
-    summary:
-      "A collection of PowerShell automation concepts focused on workstation setup, routine admin tasks, system checks, reporting, and internal IT process improvements.",
-    outcome:
-      "Created to make internal IT work faster, more consistent, and easier to maintain without adding unnecessary complexity.",
-    liveUrl: "#",
+    links: [],
   },
-];
+]
